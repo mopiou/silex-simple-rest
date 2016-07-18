@@ -4,7 +4,7 @@ php:
   - 5.4
 
 env:
- - APP_ENV=dev
+ - APP_ENV=prod
 
 before_script:
   - wget http://getcomposer.org/composer.phar
