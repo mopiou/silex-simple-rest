@@ -7,5 +7,5 @@ $app['db.options'] = array(
   "user" => "root",
   "password" => "root",
   "dbname" => "testSilex",
-  "host" => "localhost",
+  "host" => "localhost:8888",
 );
