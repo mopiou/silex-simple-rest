@@ -1,5 +1,7 @@
 <?php
 
+echo 'test brian ';
+/*
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Silex\Application();
