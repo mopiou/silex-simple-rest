@@ -25,7 +25,6 @@ class RoutesLoader
     public function bindRoutesToControllers()
     {
         $api = $this->app["controllers_factory"];
-        echo 'TESTETTETETE';
 
         $api->get('/silex-simple-test/silex-simple-rest/api/v1/notes', "notes.controller:getAll");
         $api->post('/notes', "notes.controller:save");
