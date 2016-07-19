@@ -17,8 +17,8 @@ class RoutesLoader
 
     private function instantiateControllers()
     {
-        echo'tbg';
-        
+       
+
         $this->app['notes.controller'] = $this->app->share(function () {
             return new Controllers\NotesController($this->app['notes.service']);
         });
@@ -26,6 +26,9 @@ class RoutesLoader
 
     public function bindRoutesToControllers()
     {
+
+         echo'tbg';
+         
         $api = $this->app["controllers_factory"];
 
         $api->get('/silex-simple-test/silex-simple-rest/api/v1/notes', "notes.controller:getAll");
