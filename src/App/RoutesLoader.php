@@ -17,6 +17,8 @@ class RoutesLoader
 
     private function instantiateControllers()
     {
+        echo'tbg';
+        
         $this->app['notes.controller'] = $this->app->share(function () {
             return new Controllers\NotesController($this->app['notes.service']);
         });
