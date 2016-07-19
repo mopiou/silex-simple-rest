@@ -1,5 +1,5 @@
 #because i run on http://localhost/silex-simple-test/silex-simple-rest/web/
-RewriteBase /homez.2324/azakinecht/test/silex-simple-test/silex-simple-rest/web/
+RewriteBase /test/silex-simple-test/silex-simple-rest/web/
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
