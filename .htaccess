@@ -10,6 +10,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) index.html [NC,L]
 
 #let the php framework do the rest
-RewriteRule ^(api/.*) index.php [NC,L]
+RewriteRule ^(api/.*) api/index.php [NC,L]
 
 #TODO manage every single route and return 404 for the others (for SEO purpose)
