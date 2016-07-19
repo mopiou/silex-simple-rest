@@ -1,5 +1,5 @@
 <?php
-
+echo'tonpere';
 require_once __DIR__ . '/../vendor/autoload.php';
 
 
