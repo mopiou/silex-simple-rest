@@ -1,4 +1,4 @@
-#because i run on http://localhost/silex-angularjs/web/
+#because i run on http://localhost/silex-simple-test/silex-simple-rest/web/
 RewriteBase /silex-angularjs/web/
 RewriteEngine on
 
