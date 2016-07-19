@@ -26,7 +26,7 @@ class RoutesLoader
     {
         $api = $this->app["controllers_factory"];
 
-        $api->get('/notes', "notes.controller:getAll");
+        $api->get('silex-simple-test/silex-simple-rest/api/v1/notes', "notes.controller:getAll");
         $api->post('/notes', "notes.controller:save");
         $api->put('/notes/{id}', "notes.controller:update");
         $api->delete('/notes/{id}', "notes.controller:delete");
