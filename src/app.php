@@ -82,7 +82,7 @@ $servicesLoader->bindServicesIntoContainer();
 //$routesLoader->bindRoutesToControllers();
 
 
-$notesRoutesLoader = new  App\Notes\NotesRoutesLoader($app);
+$notesRoutesLoader = new  NotesRoutesLoader($app);
 $notesRoutesLoader->bindRoutesToControllers();
 
 
