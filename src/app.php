@@ -9,7 +9,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\ServicesLoader;
-use App\RoutesLoader;
+
+
+
+//use App\RoutesLoader;
+use App\Routes\NotesRoutes;
+
+
+
 use Carbon\Carbon;
 
 date_default_timezone_set('Europe/Paris');
@@ -71,8 +78,17 @@ $servicesLoader->bindServicesIntoContainer();
 
 
 //load routes
-$routesLoader = new App\RoutesLoader($app);
-$routesLoader->bindRoutesToControllers();
+$notesRoutesLoader = new  App\Routes\NotesRoutesLoader($app);
+$notesRoutesLoader->bindRoutesToControllers();
+
+
+
+
+
+
+
+
+
 
 
 
