@@ -17,7 +17,6 @@ date_default_timezone_set('Europe/Paris');
 define("ROOT_PATH", __DIR__ . "/..");
 
 
-
 //handling CORS preflight request
 $app->before(function (Request $request) {
    if ($request->getMethod() === "OPTIONS") {
@@ -29,7 +28,6 @@ $app->before(function (Request $request) {
        return $response->send();
    }
 }, Application::EARLY_EVENT);
-
 
 
 
@@ -49,15 +47,10 @@ $app->before(function (Request $request) {
 
 
 
-$app->register(new ServiceControllerServiceProvider());
-
-
-
 
 $app->register(new DoctrineServiceProvider(), array(
   "db.options" => $app["db.options"]
 ));
-
 
 
 
