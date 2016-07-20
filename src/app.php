@@ -12,9 +12,11 @@ use App\ServicesLoader;
 use App\RoutesLoader;
 use Carbon\Carbon;
 
-date_default_timezone_set('Europe/London');
+date_default_timezone_set('Europe/Paris');
 
 define("ROOT_PATH", __DIR__ . "/..");
+
+echo '1';
 
 //handling CORS preflight request
 $app->before(function (Request $request) {
@@ -27,6 +29,9 @@ $app->before(function (Request $request) {
        return $response->send();
    }
 }, Application::EARLY_EVENT);
+
+echo '2';
+
 
 //handling CORS respons with right headers
 $app->after(function (Request $request, Response $response) {
@@ -42,27 +47,41 @@ $app->before(function (Request $request) {
     }
 });
 
+echo '3';
+
 $app->register(new ServiceControllerServiceProvider());
+
+echo '4';
+
 
 $app->register(new DoctrineServiceProvider(), array(
   "db.options" => $app["db.options"]
 ));
 
+echo '5';
+
+
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
 
 $app->register(new MonologServiceProvider(), array(
-    "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('Europe/London')->format("Y-m-d") . ".log",
+    "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('Europe/Paris')->format("Y-m-d") . ".log",
     "monolog.level" => $app["log.level"],
     "monolog.name" => "application"
 ));
+
+echo '6';
 
 //load services
 $servicesLoader = new App\ServicesLoader($app);
 $servicesLoader->bindServicesIntoContainer();
 
+echo '7';
+
 //load routes
 $routesLoader = new App\RoutesLoader($app);
 $routesLoader->bindRoutesToControllers();
+
+echo '8';
 
 $app->error(function (\Exception $e, $code) use ($app) {
     $app['monolog']->addError($e->getMessage());

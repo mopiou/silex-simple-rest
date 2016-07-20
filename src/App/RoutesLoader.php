@@ -17,6 +17,8 @@ class RoutesLoader
 
     private function instantiateControllers()
     {
+       
+
         $this->app['notes.controller'] = $this->app->share(function () {
             return new Controllers\NotesController($this->app['notes.service']);
         });
@@ -24,6 +26,9 @@ class RoutesLoader
 
     public function bindRoutesToControllers()
     {
+
+         echo'tbg';
+
         $api = $this->app["controllers_factory"];
 
         $api->get('/notes', "notes.controller:getAll");
