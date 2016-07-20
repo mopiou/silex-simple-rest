@@ -13,7 +13,7 @@ use App\ServicesLoader;
 
 
 //use App\RoutesLoader;
-use App\Routes\NotesRoutesLoader;
+use App\Notes\NotesRoutes;
 
 
 
@@ -78,9 +78,12 @@ $servicesLoader->bindServicesIntoContainer();
 
 
 //load routes
-$notesRoutesLoader = new  App\Routes\NotesRoutesLoader($app);
-$notesRoutesLoader->bindRoutesToControllers();
+//$routesLoader = new App\RoutesLoader($app);
+//$routesLoader->bindRoutesToControllers();
 
+
+$notesRoutesLoader = new  App\Notes\NotesRoutesLoader($app);
+$notesRoutesLoader->bindRoutesToControllers();
 
 
 
