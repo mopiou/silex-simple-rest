@@ -16,7 +16,7 @@ date_default_timezone_set('Europe/Paris');
 
 define("ROOT_PATH", __DIR__ . "/..");
 
-echo '1';
+
 
 //handling CORS preflight request
 $app->before(function (Request $request) {
@@ -30,7 +30,7 @@ $app->before(function (Request $request) {
    }
 }, Application::EARLY_EVENT);
 
-echo '2';
+
 
 
 //handling CORS respons with right headers
@@ -47,18 +47,18 @@ $app->before(function (Request $request) {
     }
 });
 
-echo '3';
+
 
 $app->register(new ServiceControllerServiceProvider());
 
-echo '4';
+
 
 
 $app->register(new DoctrineServiceProvider(), array(
   "db.options" => $app["db.options"]
 ));
 
-echo '5';
+
 
 
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
@@ -69,19 +69,19 @@ $app->register(new MonologServiceProvider(), array(
     "monolog.name" => "application"
 ));
 
-echo '6';
+
 
 //load services
 $servicesLoader = new App\ServicesLoader($app);
 $servicesLoader->bindServicesIntoContainer();
 
-echo '7';
+
 
 //load routes
 $routesLoader = new App\RoutesLoader($app);
 $routesLoader->bindRoutesToControllers();
 
-echo '8';
+
 
 $app->error(function (\Exception $e, $code) use ($app) {
     $app['monolog']->addError($e->getMessage());
