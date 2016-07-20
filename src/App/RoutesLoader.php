@@ -27,7 +27,6 @@ class RoutesLoader
     public function bindRoutesToControllers()
     {
 
-         echo'tbg';
 
         $api = $this->app["controllers_factory"];
 
