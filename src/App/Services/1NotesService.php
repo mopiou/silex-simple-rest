@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class NotesService extends BaseService
+class 1NotesService extends BaseService
 {
 
     public function getAll()
