@@ -14,8 +14,8 @@ use App\ServicesLoader;
 
 
 
-use App\RoutesLoader;
-// use App\Notes\NotesRoutesLoader;
+// use App\RoutesLoader;
+use App\Notes\NotesRoutesLoader;
 
 
 use Carbon\Carbon;
@@ -79,12 +79,12 @@ $servicesLoader->bindServicesIntoContainer();
 
 
 //load routes
-$routesLoader = new App\RoutesLoader($app);
-$routesLoader->bindRoutesToControllers();
+// $routesLoader = new App\RoutesLoader($app);
+// $routesLoader->bindRoutesToControllers();
 
 
-// $notesRoutesLoader = new  App\Notes\NotesRoutesLoader($app);
-// $notesRoutesLoader->bindRoutesToControllers();
+$notesRoutesLoader = new  App\Notes\NotesRoutesLoader($app);
+$notesRoutesLoader->bindRoutesToControllers();
 
 
 
