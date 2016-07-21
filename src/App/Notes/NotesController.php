@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Notes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
