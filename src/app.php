@@ -82,10 +82,12 @@ $servicesLoader->bindServicesIntoContainer();
 // $routesLoader = new App\RoutesLoader($app);
 // $routesLoader->bindRoutesToControllers();
 
+echo "Avant route loader dans App";
 
 $notesRoutesLoader = new  App\Notes\NotesRoutesLoader($app);
 $notesRoutesLoader->bindRoutesToControllers();
 
+echo "Apres route loader dans App";
 
 
 
