@@ -31,7 +31,7 @@ class NotesService extends BaseService
 
             $prepare = $this->db->prepare('
                 SELECT 
-                    *
+                    nom
                 FROM 
                     user
                 WHERE 
