@@ -20,7 +20,7 @@ class NotesRoutesLoader
        
 
         $this->app['notes.controller'] = $this->app->share(function () {
-            return new NotesController($this->app['notes.service']);
+            return new App\Notes\NotesController($this->app['notes.service']);
         });
     }
 
