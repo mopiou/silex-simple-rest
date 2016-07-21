@@ -4,7 +4,7 @@ namespace App;
 
 use Silex\Application;
 
-class RoutesLoader
+class 1RoutesLoader
 {
     private $app;
 
@@ -20,7 +20,7 @@ class RoutesLoader
        
 
         $this->app['notes.controller'] = $this->app->share(function () {
-            return new Controllers\NotesController($this->app['notes.service']);
+            return new Notes\NotesController($this->app['notes.service']);
         });
     }
 
