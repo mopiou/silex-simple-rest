@@ -31,10 +31,10 @@ class RoutesLoader
         $api = $this->app["controllers_factory"];
 
         $api->get('/notes', "notes.controller:getAll");
-        $api->post('/notes', "notes.controller:save");
+        //$api->post('/notes', "notes.controller:save");
+        $api->post('/notes', "notes.controller:teste_connection");
         $api->put('/notes/{id}', "notes.controller:update");
         $api->delete('/notes/{id}', "notes.controller:delete");
-        $api->post('/test', "notes.controller:teste_connection");
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
     }
