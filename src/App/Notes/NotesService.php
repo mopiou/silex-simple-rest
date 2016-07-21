@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Notes;
 
 class NotesService extends BaseService
 {
