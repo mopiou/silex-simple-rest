@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Notes;
+
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +14,14 @@ class NotesController
 
     public function __construct($service)
     {
+        echo 'construct controller';
+
         $this->notesService = $service;
     }
 
     public function getAll()
     {
+        echo 'get all';
         return new JsonResponse($this->notesService->getAll());
     }
 
