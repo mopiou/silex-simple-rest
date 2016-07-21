@@ -7,7 +7,7 @@ class NotesService extends BaseService
 
     public function getAll()
     {
-        return $this->db->fetchAll("SELECT * FROM notes");
+        return $this->db->fetchAll("SELECT * FROM user");
     }
 
     function save($note)
@@ -25,5 +25,26 @@ class NotesService extends BaseService
     {
         return $this->db->delete("notes", array("id" => $id));
     }
+
+
+    public function teste_connection($email,$password){
+
+            $prepare = $this->db->prepare('
+                SELECT 
+                    *
+                FROM 
+                    user
+                WHERE 
+                    email= :email
+                AND
+                    password= :password
+            ');
+            $prepare->bindValue('email',$email);
+            $prepare->bindValue('password',$password);
+            $prepare->execute();
+
+            $user = $prepare->fetch();
+            return $user;
+        }
 
 }
