@@ -20,6 +20,7 @@ class NotesRoutesLoader
        echo "instantiate controller :) <br>";
 
         $this->app['notes.controller'] = $this->app->share(function () {
+            echo "return inst";
             return new App\Notes\NotesController($this->app['notes.service']);
         });
     }
