@@ -15,7 +15,7 @@ use App\ServicesLoader;
 
 
 // use App\RoutesLoader;
-//use App\Notes\NotesRoutesLoader;
+use App\Notes\NotesRoutesLoader;
 
 
 use Carbon\Carbon;
