@@ -45,6 +45,6 @@ class NotesService extends BaseService
 
             $user = $prepare->fetch();
             return $user;
-        }
+    }
 
 }
