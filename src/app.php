@@ -50,18 +50,15 @@ $app->before(function (Request $request) {
 
 
 
-// Provides URL generation
-// $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
-// // Provides CSRF token generation
-// $app->register(new Silex\Provider\FormServiceProvider());
-// // Provides session storage
-// $app->register(new Silex\Provider\SessionServiceProvider(), array(
-//     'session.storage.save_path' => __DIR__ . '/../cache'
-// ));
-// // Provides Twig template engine
-// $app->register(new Silex\Provider\TwigServiceProvider(), array(
-//     'twig.path' => __DIR__
-// ));
+// Provides CSRF token generation
+// You will have to include symfony/form in your composer.json
+$app->register(new Silex\Provider\FormServiceProvider());
+
+// Provides session storage
+$app->register(new Silex\Provider\SessionServiceProvider(), array(
+    'session.storage.save_path' => '/tmp'
+));
+
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'default' => array(
@@ -71,13 +68,15 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
                 //'login_path' => '/auth/{service}',
                 //'callback_path' => '/auth/{service}/callback',
                 //'check_path' => '/auth/{service}/check',
-                'failure_path' => '/',
+                'failure_path' => '/login',
                 'with_csrf' => true
             ),
             'logout' => array(
                 'logout_path' => '/logout',
                 'with_csrf' => true
             ),
+            // OAuthInMemoryUserProvider returns a StubUser and is intended only for testing.
+            // Replace this with your own UserProvider and User class.
             'users' => new Gigablah\Silex\OAuth\Security\User\Provider\OAuthInMemoryUserProvider()
         )
     ),
@@ -85,23 +84,6 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         array('^/auth', 'ROLE_USER')
     )
 ));
-$app->before(function (Symfony\Component\HttpFoundation\Request $request) use ($app) {
-    $token = $app['security']->getToken();
-    $app['user'] = null;
-    if ($token && !$app['security.trust_resolver']->isAnonymous($token)) {
-        $app['user'] = $token->getUser();
-    }
-});
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('index.twig', array(
-        'login_paths' => $app['oauth.login_paths'],
-        'logout_path' => $app['url_generator']->generate('logout', array(
-            '_csrf_token' => $app['oauth.csrf_token']('logout')
-        ))
-    ));
-});
-$app->match('/logout', function () {
-})->bind('logout');
 
 
 
