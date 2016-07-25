@@ -17,6 +17,50 @@ date_default_timezone_set('Europe/Paris');
 define("ROOT_PATH", __DIR__ . "/..");
 
 
+
+
+$app->register(new Gigablah\Silex\OAuth\OAuthServiceProvider(), array(
+    'oauth.services' => array(
+        'Facebook' => array(
+            'key' => FACEBOOK_API_KEY,
+            'secret' => FACEBOOK_API_SECRET,
+            'scope' => array('email'),
+            'user_endpoint' => 'https://graph.facebook.com/me'
+        ),
+        'Twitter' => array(
+            'key' => TWITTER_API_KEY,
+            'secret' => TWITTER_API_SECRET,
+            'scope' => array(),
+            // Note: permission needs to be obtained from Twitter to use the include_email parameter
+            'user_endpoint' => 'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
+            'user_callback' => function ($token, $userInfo, $service) {
+                $token->setUser($userInfo['name']);
+                $token->setEmail($userInfo['email']);
+                $token->setUid($userInfo['id']);
+            }
+        ),
+        'Google' => array(
+            'key' => GOOGLE_API_KEY,
+            'secret' => GOOGLE_API_SECRET,
+            'scope' => array(
+                'https://www.googleapis.com/auth/userinfo.email',
+                'https://www.googleapis.com/auth/userinfo.profile'
+            ),
+            'user_endpoint' => 'https://www.googleapis.com/oauth2/v1/userinfo'
+        ),
+        'GitHub' => array(
+            'key' => GITHUB_API_KEY,
+            'secret' => GITHUB_API_SECRET,
+            'scope' => array('user:email'),
+            'user_endpoint' => 'https://api.github.com/user'
+        )
+    )
+));
+
+
+
+
+
 //handling CORS preflight request
 $app->before(function (Request $request) {
    if ($request->getMethod() === "OPTIONS") {
