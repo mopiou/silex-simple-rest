@@ -22,7 +22,9 @@ namespace Mockery\Tests;
  * @license    http://github.com/padraic/mockery/blob/master/LICENSE New BSD License
  */
 
-class GeneratorTest extends \PHPUnit_Framework_TestCase
+use Mockery\Adapter\Phpunit\MockeryTestCase;
+
+class GeneratorTest extends MockeryTestCase
 {
     /** @test */
     public function shouldNotDuplicateDoublyInheritedMethods()
@@ -59,8 +61,6 @@ interface React_WritableStreamInterface extends React_StreamInterface
     public function write($data);
 }
 
-interface Chatroulette_ConnectionInterface
-    extends React_ReadableStreamInterface,
-            React_WritableStreamInterface
+interface Chatroulette_ConnectionInterface extends React_ReadableStreamInterface, React_WritableStreamInterface
 {
 }

@@ -19,12 +19,12 @@
  * @license    http://github.com/padraic/mockery/blob/master/LICENSE New BSD License
  */
 
-/**
- */
-class Mockery_MockTest extends PHPUnit_Framework_TestCase
+use Mockery\Adapter\Phpunit\MockeryTestCase;
+
+class Mockery_MockTest extends MockeryTestCase
 {
 
-    public function setup ()
+    public function setup()
     {
         $this->container = new \Mockery\Container(\Mockery::getDefaultGenerator(), \Mockery::getDefaultLoader());
     }
@@ -34,7 +34,7 @@ class Mockery_MockTest extends PHPUnit_Framework_TestCase
         $this->container->mockery_close();
     }
 
-    public function testAnonymousMockWorksWithNotAllowingMockingOfNonExistantMethods()
+    public function testAnonymousMockWorksWithNotAllowingMockingOfNonExistentMethods()
     {
         \Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
         $m = $this->container->mock();
@@ -43,7 +43,7 @@ class Mockery_MockTest extends PHPUnit_Framework_TestCase
         \Mockery::getConfiguration()->allowMockingNonExistentMethods(true);
     }
 
-    public function testMockWithNotAllowingMockingOfNonExistantMethodsCanBeGivenAdditionalMethodsToMockEvenIfTheyDontExistOnClass()
+    public function testMockWithNotAllowingMockingOfNonExistentMethodsCanBeGivenAdditionalMethodsToMockEvenIfTheyDontExistOnClass()
     {
         \Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
         $m = $this->container->mock('ExampleClassForTestingNonExistentMethod');
@@ -53,25 +53,93 @@ class Mockery_MockTest extends PHPUnit_Framework_TestCase
         \Mockery::getConfiguration()->allowMockingNonExistentMethods(true);
     }
 
-    public function testMockAddsToString() 
+    public function testShouldAllowMockingMethodReturnsMockInstance()
+    {
+        $m = Mockery::mock('someClass');
+        $this->assertInstanceOf('Mockery\MockInterface', $m->shouldAllowMockingMethod('testFunction'));
+    }
+
+    public function testShouldAllowMockingProtectedMethodReturnsMockInstance()
+    {
+        $m = Mockery::mock('someClass');
+        $this->assertInstanceOf('Mockery\MockInterface', $m->shouldAllowMockingProtectedMethods('testFunction'));
+    }
+
+    public function testMockAddsToString()
     {
         $mock = $this->container->mock('ClassWithNoToString');
         assertThat(hasToString($mock));
     }
 
-    public function testMockToStringMayBeDeferred() 
+    public function testMockToStringMayBeDeferred()
     {
         $mock = $this->container->mock('ClassWithToString')->shouldDeferMissing();
         assertThat((string)$mock, equalTo("foo"));
     }
 
-    public function testMockToStringShouldIgnoreMissingAlwaysReturnsString() 
+    public function testMockToStringShouldIgnoreMissingAlwaysReturnsString()
     {
         $mock = $this->container->mock('ClassWithNoToString')->shouldIgnoreMissing();
         assertThat(isNonEmptyString((string)$mock));
 
         $mock->asUndefined();
         assertThat(isNonEmptyString((string)$mock));
+    }
+
+    public function testShouldIgnoreMissing()
+    {
+        $mock = $this->container->mock('ClassWithNoToString')->shouldIgnoreMissing();
+        assertThat(nullValue($mock->nonExistingMethod()));
+    }
+
+    /**
+     * @expectedException Mockery\Exception
+     */
+    public function testShouldIgnoreMissingDisallowMockingNonExistentMethodsUsingGlobalConfiguration()
+    {
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
+        $mock = $this->container->mock('ClassWithMethods')->shouldIgnoreMissing();
+        $mock->shouldReceive('nonExistentMethod');
+    }
+
+    /**
+     * @expectedException BadMethodCallException
+     */
+    public function testShouldIgnoreMissingCallingNonExistentMethodsUsingGlobalConfiguration()
+    {
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
+        $mock = $this->container->mock('ClassWithMethods')->shouldIgnoreMissing();
+        $mock->nonExistentMethod();
+    }
+
+    public function testShouldIgnoreMissingCallingExistentMethods()
+    {
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
+        $mock = $this->container->mock('ClassWithMethods')->shouldIgnoreMissing();
+        assertThat(nullValue($mock->foo()));
+        $mock->shouldReceive('bar')->passthru();
+        assertThat($mock->bar(), equalTo('bar'));
+    }
+
+    public function testShouldIgnoreMissingCallingNonExistentMethods()
+    {
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(true);
+        $mock = $this->container->mock('ClassWithMethods')->shouldIgnoreMissing();
+        assertThat(nullValue($mock->foo()));
+        assertThat(nullValue($mock->bar()));
+        assertThat(nullValue($mock->nonExistentMethod()));
+
+        $mock->shouldReceive(array('foo' => 'new_foo', 'nonExistentMethod' => 'result'));
+        $mock->shouldReceive('bar')->passthru();
+        assertThat($mock->foo(), equalTo('new_foo'));
+        assertThat($mock->bar(), equalTo('bar'));
+        assertThat($mock->nonExistentMethod(), equalTo('result'));
+    }
+
+    public function testCanMockException()
+    {
+        $exception = Mockery::mock('Exception');
+        $this->assertInstanceOf('Exception', $exception);
     }
 }
 
@@ -80,14 +148,27 @@ class ExampleClassForTestingNonExistentMethod
 {
 }
 
-class ClassWithToString 
+class ClassWithToString
 {
-    public function __toString() 
+    public function __toString()
     {
         return 'foo';
     }
 }
 
-class ClassWithNoToString 
+class ClassWithNoToString
 {
+}
+
+class ClassWithMethods
+{
+    public function foo()
+    {
+        return 'foo';
+    }
+
+    public function bar()
+    {
+        return 'bar';
+    }
 }

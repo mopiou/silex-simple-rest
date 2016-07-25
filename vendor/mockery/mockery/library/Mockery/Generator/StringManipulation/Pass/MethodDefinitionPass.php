@@ -2,18 +2,17 @@
 
 namespace Mockery\Generator\StringManipulation\Pass;
 
-use Mockery\Generator\MockConfiguration;
 use Mockery\Generator\Method;
+use Mockery\Generator\MockConfiguration;
 
 class MethodDefinitionPass implements Pass
 {
     public function apply($code, MockConfiguration $config)
     {
         foreach ($config->getMethodsToMock() as $method) {
-
             if ($method->isPublic()) {
                 $methodDef = 'public';
-            } elseif($method->isProtected()) {
+            } elseif ($method->isProtected()) {
                 $methodDef = 'protected';
             } else {
                 $methodDef = 'private';
@@ -27,6 +26,7 @@ class MethodDefinitionPass implements Pass
             $methodDef .= $method->returnsReference() ? ' & ' : '';
             $methodDef .= $method->getName();
             $methodDef .= $this->renderParams($method, $config);
+            $methodDef .= $this->renderReturnType($method);
             $methodDef .= $this->renderMethodBody($method, $config);
 
             $code = $this->appendToClass($code, $methodDef);
@@ -51,17 +51,26 @@ class MethodDefinitionPass implements Pass
         foreach ($params as $param) {
             $paramDef = $param->getTypeHintAsString();
             $paramDef .= $param->isPassedByReference() ? '&' : '';
+            $paramDef .= $param->isVariadic() ? '...' : '';
             $paramDef .= '$' . $param->getName();
 
-            if (false !== $param->isDefaultValueAvailable()) {
-                $paramDef .= ' = ' . var_export($param->getDefaultValue(), true);
-            } else if ($param->isOptional()) {
-                $paramDef .= ' = null';
+            if (!$param->isVariadic()) {
+                if (false !== $param->isDefaultValueAvailable()) {
+                    $paramDef .= ' = ' . var_export($param->getDefaultValue(), true);
+                } elseif ($param->isOptional()) {
+                    $paramDef .= ' = null';
+                }
             }
 
             $methodParams[] = $paramDef;
         }
         return '(' . implode(', ', $methodParams) . ')';
+    }
+
+    protected function renderReturnType(Method $method)
+    {
+        $type = $method->getReturnType();
+        return $type ? sprintf(': %s', $type) : '';
     }
 
     protected function appendToClass($class, $code)
@@ -73,7 +82,7 @@ class MethodDefinitionPass implements Pass
 
     private function renderMethodBody($method, $config)
     {
-        $invoke = $method->isStatic() ? 'static::__callStatic' : '$this->__call';
+        $invoke = $method->isStatic() ? 'static::_mockery_handleStaticMethodCall' : '$this->_mockery_handleMethodCall';
         $body = <<<BODY
 {
 \$argc = func_num_args();
@@ -91,7 +100,7 @@ BODY;
             $params = array_values($overrides[$class_name][$method->getName()]);
             $paramCount = count($params);
             for ($i = 0; $i < $paramCount; ++$i) {
-              $param = $params[$i];
+                $param = $params[$i];
                 if (strpos($param, '&') !== false) {
                     $body .= <<<BODY
 if (\$argc > $i) {
