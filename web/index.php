@@ -14,6 +14,8 @@ define('GITHUB_API_SECRET',   '');
 
 $app = new Silex\Application();
 
+$app['debug'] = true;
+
 
 $app->register(new Gigablah\Silex\OAuth\OAuthServiceProvider(), array(
     'oauth.services' => array(
