@@ -56,6 +56,8 @@ $app->before(function (Request $request) {
 
 
 
+
+
 // Provides CSRF token generation
 // You will have to include symfony/form in your composer.json
 $app->register(new Silex\Provider\FormServiceProvider());
