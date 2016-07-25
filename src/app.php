@@ -48,6 +48,14 @@ $app->before(function (Request $request) {
 
 
 
+
+
+
+
+
+
+
+
 // Provides CSRF token generation
 // You will have to include symfony/form in your composer.json
 $app->register(new Silex\Provider\FormServiceProvider());
@@ -119,6 +127,18 @@ $app->match('/logout', function () {})->bind('logout');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 $app->register(new ServiceControllerServiceProvider());
 
 
@@ -136,6 +156,16 @@ $app->register(new MonologServiceProvider(), array(
     "monolog.level" => $app["log.level"],
     "monolog.name" => "application"
 ));
+
+
+
+$app->get('/test', function (Request $request) use($app) {
+      $data = array();
+      return $app['twig']->render('social_network.twig', $data);
+  })
+  ->bind('test');
+
+
 
 
 //load services
