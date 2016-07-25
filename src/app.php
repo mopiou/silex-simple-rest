@@ -18,11 +18,6 @@ define("ROOT_PATH", __DIR__ . "/..");
 
 
 
-
-
-
-
-
 //handling CORS preflight request
 $app->before(function (Request $request) {
    if ($request->getMethod() === "OPTIONS") {
