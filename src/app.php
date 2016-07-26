@@ -80,11 +80,11 @@ $app->register(new MonologServiceProvider(), array(
 
 
 
-$app->get('/test', function (Request $request) use($app) {
-      $data = array();
-      return $app['twig']->render('social_network.twig', $data);
-  })
-  ->bind('test');
+// $app->get('/test', function (Request $request) use($app) {
+//       $data = array();
+//       return $app['twig']->render('social_network.twig', $data);
+//   })
+//   ->bind('test');
 
 
 
