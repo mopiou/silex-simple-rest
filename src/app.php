@@ -32,7 +32,6 @@ $app->before(function (Request $request) {
 
 
 
-
 //handling CORS respons with right headers
 $app->after(function (Request $request, Response $response) {
    $response->headers->set("Access-Control-Allow-Origin","*");
@@ -49,6 +48,18 @@ $app->before(function (Request $request) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 $app->register(new ServiceControllerServiceProvider());
 
 
@@ -57,8 +68,6 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(new DoctrineServiceProvider(), array(
   "db.options" => $app["db.options"]
 ));
-
-
 
 
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
@@ -71,16 +80,23 @@ $app->register(new MonologServiceProvider(), array(
 
 
 
+// $app->get('/test', function (Request $request) use($app) {
+//       $data = array();
+//       return $app['twig']->render('social_network.twig', $data);
+//   })
+//   ->bind('test');
+
+
+
+
 //load services
 $servicesLoader = new App\ServicesLoader($app);
 $servicesLoader->bindServicesIntoContainer();
 
 
-
 //load routes
 $routesLoader = new App\RoutesLoader($app);
 $routesLoader->bindRoutesToControllers();
-
 
 
 $app->error(function (\Exception $e, $code) use ($app) {
