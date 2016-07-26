@@ -50,4 +50,16 @@ class NotesController
             "note" => $request->request->get("note")
         );
     }
+
+    public function teste_connection(Request $request){
+
+        $email =$request->request->get("email");
+        $password =$request->request->get("password");
+       
+        return new JsonResponse($this->notesService->teste_connection($email,$password));
+
+
+    }
+
+
 }
