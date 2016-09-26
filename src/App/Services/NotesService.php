@@ -20,7 +20,7 @@ class NotesService extends BaseService
 
         $requete= $this->db->prepare("INSERT INTO notes VALUES (?,?)");
         $requete->execute(array($id_note,$note));
-        $requete = $requete->fetch(PDO::FETCH_OBJ);
+        $requete = $requete->$query->fetch();
        
         return $requete;
         //return $this->db->lastInsertId();
