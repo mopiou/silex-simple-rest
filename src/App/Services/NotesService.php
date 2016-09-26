@@ -18,14 +18,11 @@ class NotesService extends BaseService
         // return $note;
 
 
-        $query = $this->db->query('
-                insert into notes
-                    VALUES
-                    (note='.$note.',
-                    id_note ='.$id.')
-                ');
-
-        return $query;
+        $requete= $this->db->prepare("INSERT INTO notes VALUES (?,?)");
+        $requete->execute(array($id_note,$note));
+        $requete = $requete->fetch(PDO::FETCH_OBJ);
+       
+        return $requete;
         //return $this->db->lastInsertId();
 
         // $query = $this->db->query('
