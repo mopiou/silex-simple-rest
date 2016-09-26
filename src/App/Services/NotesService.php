@@ -15,6 +15,7 @@ class NotesService extends BaseService
 
         $this->db->set('id_note', $id_note);
         $this->db->set('note', $note);
+        $this->db->insert('notes');
 
         return $note;
 
