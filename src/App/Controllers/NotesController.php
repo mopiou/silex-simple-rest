@@ -28,7 +28,7 @@ class NotesController
         }
 
         $id = array(
-            "id_note" => $request->request->get("note")
+            "id_note" => $request->request->get("id_note")
         );
 
         $note = $this->getDataFromRequest($request);
