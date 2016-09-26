@@ -13,9 +13,9 @@ class NotesService extends BaseService
     function create($note,$id_note)
     {
         // $this->db->insert("notes", $id_note);
-        // $this->db->insert("note  s", $note);
-        
-        //return $note;
+        //$this->db->insert("notes", $note);
+        $this->db->insert('notes', $note, ['id_note' => $id_note]);
+        return $note;
 
 
         $requete= $this->db->query('INSERT INTO notes VALUES ("'.$id_note.'","'.$note.'")');
