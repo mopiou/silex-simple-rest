@@ -21,8 +21,8 @@ class NotesService extends BaseService
         $query = $this->db->query('
                 insert into notes
                     VALUES
-                    (note="'.$note.'"
-                    id_note = "'.$id.'")
+                    (note='.$note.',
+                    id_note ='.$id.')
                 ');
 
         return $query;
