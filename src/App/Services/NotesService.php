@@ -10,10 +10,21 @@ class NotesService extends BaseService
         return $this->db->fetchAll("SELECT * FROM user");
     }
 
-    function create($note)
+    function create($note,$id)
     {
-        $this->db->insert("notes", $note);
+        $this->db->insert("notes", $note,$id);
+        print_r($id);
         return $this->db->lastInsertId();
+
+        // $query = $this->db->query('
+        //         INSERT INTO   
+        //         notes VALUES
+        //         id_notes="'.$id.'" , note="'.$note.'" 
+        //     ');
+
+        //     $promotion = $query->fetch();
+            
+        //     return $promotion;
     }
 
     function update($id, $note)
