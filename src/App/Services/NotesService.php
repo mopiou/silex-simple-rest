@@ -14,6 +14,7 @@ class NotesService extends BaseService
     {
         $this->db->insert("notes", $id_note,$note);
         print_r($id_note);
+        print_r('tesbg');
         return $this->db->lastInsertId();
 
         // $query = $this->db->query('
