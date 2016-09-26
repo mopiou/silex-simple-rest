@@ -32,8 +32,9 @@ class NotesController
         );
 
         $note = $this->getDataFromRequest($request);
-        return new JsonResponse(array("id" => $this->notesService->create($note,$id)));
+        //return new JsonResponse(array("id" => $this->notesService->create($note,$id)));
 
+        return $this->notesService->create($note,$id);
     }
 
     public function update($id, Request $request)
