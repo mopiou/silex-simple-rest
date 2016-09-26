@@ -13,6 +13,10 @@ class NotesService extends BaseService
     function create($note,$id_note)
     {
 
+        $this->db->set('id_note', $id_note);
+        $this->db->set('note', $note);
+
+        return $note;
 
         $data = array(
         'id_note' => '$id_note',
