@@ -27,11 +27,10 @@ class NotesController
         return $app->json('Missing parameter: note', 400);
         }
 
-        $id = array(
-            "id_note" => $request->request->get("id_note")
-        );
+        $id = $request->request->get("id_note");
+        $note = $request->request->get("note");
 
-        $note = $this->getDataFromRequest($request);
+        //$note = $this->getDataFromRequest($request);
         //return new JsonResponse(array("id" => $this->notesService->create($note,$id)));
 
         return $this->notesService->create($note,$id);
