@@ -21,11 +21,14 @@ class NotesController
         return new JsonResponse($this->notesService->getAll());
     }
 
-    public function save(Request $request)
+    public function create(Request $request)
     {
+        if (!$request->request->has('note')) {
+        return $app->json('Missing parameter: note', 400);
+        }
 
         $note = $this->getDataFromRequest($request);
-        return new JsonResponse(array("id" => $this->notesService->save($note)));
+        return new JsonResponse(array("id" => $this->notesService->create($note)));
 
     }
 

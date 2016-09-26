@@ -10,7 +10,7 @@ class NotesService extends BaseService
         return $this->db->fetchAll("SELECT * FROM user");
     }
 
-    function save($note)
+    function create($note)
     {
         $this->db->insert("notes", $note);
         return $this->db->lastInsertId();
