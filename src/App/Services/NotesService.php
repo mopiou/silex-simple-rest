@@ -13,11 +13,11 @@ class NotesService extends BaseService
     function create($note,$id_note)
     {
 
-        $this->db->set('id_note', $id_note);
-        $this->db->set('note', $note);
-        $this->db->insert('notes');
+        // $this->db->set('id_note', $id_note);
+        // $this->db->set('note', $note);
+        // $this->db->insert('notes');
 
-        return $note;
+        // return $note;
 
         $data = array(
         'id_note' => '$id_note',
@@ -25,7 +25,7 @@ class NotesService extends BaseService
         );
 
 
-        $result =$this->db->insert($data);
+        $result =$this->db->insert_batch($data);
         //$this->db->insert("notes", $id_note,$note);
         //$this->db->insert("notes", $note);
         //$this->db->insert('notes', ['id_note' => $id_note],['note' => $note]);
