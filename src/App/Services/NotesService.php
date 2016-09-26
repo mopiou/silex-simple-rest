@@ -24,9 +24,8 @@ class NotesService extends BaseService
         'note' => '$note'
         );
 
-        $sql = $this->db->set($data)->get_compiled_insert('notes');
-        echo $sql;
-        return $sql;
+        $this->db->insert('notes', $data);
+        return ;
 
         $result =$this->db->insert_batch($data);
         //$this->db->insert("notes", $id_note,$note);
