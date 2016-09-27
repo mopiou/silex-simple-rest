@@ -42,8 +42,8 @@ class NotesController
         $note = $request->request->get("note");
 
         print_r($note);
-        print_r($id_note);
-        return $id_note;
+        //print_r($id_note);
+        return $note;
 
         $this->notesService->update($id_note, $note);
         return new JsonResponse($note);
