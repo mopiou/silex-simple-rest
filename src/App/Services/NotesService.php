@@ -28,7 +28,7 @@ class NotesService extends BaseService
         );
 
         $this->db->insert('notes', $data);
-        return ;
+        return $data;
 
         //fin solution
 
