@@ -41,9 +41,9 @@ class NotesController
         //$note = $this->getDataFromRequest($request);
        $note = $request->request->get("note");
 
-       var_dump($request);
-
-        print_r($note);
+       //var_dump($request);
+       var_dump($note);
+        
         //print_r($id_note);
         return ;
 
