@@ -12,16 +12,7 @@ class NotesService extends BaseService
 
     function create($note,$id_note)
     {
-
-        // $this->db->set('id_note', $id_note);
-        // $this->db->set('note', $note);
-        // $this->db->insert('notes');
-
-        // return $note;
-       
-
-        //SOLUTION mais renvoie null et ajout null en argument en base
-
+        
         $data = array(
         'id_note' => $id_note,
         'note' => $note
@@ -29,24 +20,6 @@ class NotesService extends BaseService
 
         $this->db->insert('notes', $data);
         return $data;
-
-        //fin solution
-
-        $result =$this->db->insert_batch($data);
-        //$this->db->insert("notes", $id_note,$note);
-        //$this->db->insert("notes", $note);
-        //$this->db->insert('notes', ['id_note' => $id_note],['note' => $note]);
-        return $result;
-
-
-        //marche mais c'est de la merde
-
-        //$requete= $this->db->query('INSERT INTO notes VALUES ("'.$id_note.'","'.$note.'")');
-        
-        //$requete =$requete->fetch();
-        //return var_dump($requete);
-       // return $requete;
-
       
     }
 

@@ -38,7 +38,8 @@ class NotesController
 
     public function update($id, Request $request)
     {
-        $note = $this->getDataFromRequest($request);
+        //$note = $this->getDataFromRequest($request);
+        $note = $request->request->get("note");
         $this->notesService->update($id, $note);
         return new JsonResponse($note);
 
