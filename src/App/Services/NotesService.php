@@ -18,7 +18,8 @@ class NotesService extends BaseService
         // $this->db->insert('notes');
 
         // return $note;
-        var_dump($note);
+        echo var_dump($note);
+        return;
 
         //SOLUTION mais renvoie null et ajout null en argument en base
 
