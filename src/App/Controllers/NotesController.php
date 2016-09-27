@@ -39,7 +39,7 @@ class NotesController
     public function update($id_note, Request $request)
     {
         //$note = $this->getDataFromRequest($request);
-       $note = $request->server->get("note");
+       $note = $request->server->get("QUERY_STRING");
 
         var_dump($note);
         return var_dump($request);
