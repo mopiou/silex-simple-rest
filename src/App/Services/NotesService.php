@@ -23,16 +23,14 @@ class NotesService extends BaseService
       
     }
 
-    function update($id, $note)
+    function update($id_note, $note)
     {
-        return $this->db->update('notes', $note, ['id_note' => $id]);
+        return $this->db->update('notes', $note, ['id_note' => $id_note]);
     }
 
-    function delete($id)
+    function delete($id_note)
     {
-        //return $id;
-
-        return $this->db->delete("notes", array("id_note" => $id));
+        return $this->db->delete("notes", array("id_note" => $id_note));
     }
 
 }
