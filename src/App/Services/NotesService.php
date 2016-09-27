@@ -30,6 +30,8 @@ class NotesService extends BaseService
 
     function delete($id)
     {
+        return $id;
+        
         return $this->db->delete("notes", array("id_note" => $id));
     }
 
