@@ -42,10 +42,10 @@ class NotesController
        $note = $request->request->get("note");
 
        //var_dump($request);
-       var_dump($note);
+       return var_dump($request);
         
         //print_r($id_note);
-        return ;
+    
 
         $this->notesService->update($id_note, $note);
         return new JsonResponse($note);
