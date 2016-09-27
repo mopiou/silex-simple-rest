@@ -45,9 +45,9 @@ class NotesController
 
     }
 
-    public function delete($id)
+    public function delete($id_note)
     {
-            return $id;
+            return $id_note;
         //return new JsonResponse($this->notesService->delete($id));
 
     }
