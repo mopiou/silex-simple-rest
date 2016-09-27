@@ -39,11 +39,13 @@ class NotesController
     public function update($id_note, Request $request)
     {
         //$note = $this->getDataFromRequest($request);
-        $note = $request->request->get("note");
+       $note = $request->request->get("note");
+
+       var_dump($request);
 
         print_r($note);
         //print_r($id_note);
-        return $note;
+        return ;
 
         $this->notesService->update($id_note, $note);
         return new JsonResponse($note);
