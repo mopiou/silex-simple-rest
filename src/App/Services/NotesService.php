@@ -18,14 +18,13 @@ class NotesService extends BaseService
         // $this->db->insert('notes');
 
         // return $note;
-        echo var_dump($note);
-        return;
+       
 
         //SOLUTION mais renvoie null et ajout null en argument en base
 
         $data = array(
-        'id_note' => '$id_note',
-        'note' => '$note'
+        'id_note' => $id_note,
+        'note' => $note
         );
 
         $this->db->insert('notes', $data);
