@@ -42,7 +42,7 @@ class NotesController
        $note = $request->request->get("note");
 
        //var_dump($request);
-        //var_dump($request);
+        var_dump($request);
         
         return var_dump($note);
 
