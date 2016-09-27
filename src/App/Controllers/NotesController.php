@@ -44,9 +44,6 @@ class NotesController
        //var_dump($request);
        return var_dump($request);
         
-        //print_r($id_note);
-    
-
         $this->notesService->update($id_note, $note);
         return new JsonResponse($note);
 
