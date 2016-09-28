@@ -25,6 +25,7 @@ class NotesService extends BaseService
 
     function update($id_note, $new_note)
     {
+        print_r($id_note);
         print_r($new_note);
 
         return print_r($id_note);
