@@ -66,6 +66,7 @@ class NotesController
 
         $note = $request->headers->get("note");
         print_r($note);
+        return;
        return var_dump($request);
 
    
