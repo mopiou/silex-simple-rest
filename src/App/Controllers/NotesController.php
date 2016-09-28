@@ -41,10 +41,10 @@ class NotesController
     
         //$id = $request->request->get("id_note");
        //$note = $request->server->get("QUERY_STRING");
-
-        //print_r($new_note);
-
-        return var_dump($request);
+        print_r($id_note);
+        print_r($new_note);
+        return;
+        //return var_dump($request);
 
         $this->notesService->update($id_note,$new_note);
         return new JsonResponse($new_note);
