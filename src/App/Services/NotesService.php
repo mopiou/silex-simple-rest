@@ -29,7 +29,7 @@ class NotesService extends BaseService
         print_r($new_note);
 
         $data = array(
-        'new_note' => $new_note
+        'new_note' => $new_note,
         );
 
         $this->db->where('id_note', $id_note);
