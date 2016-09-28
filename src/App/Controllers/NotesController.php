@@ -64,11 +64,8 @@ class NotesController
         print_r($id_note);
         print_r('note=');
 
-        $note = $request->headers->get("note");
-        return print_r($note);
-
-       return var_dump($request);
-
+        $new_note = $request->headers->get("note");
+        print_r($new_note);
    
         return $this->notesService->update($id_note,$new_note);
     
