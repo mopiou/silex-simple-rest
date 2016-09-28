@@ -36,12 +36,13 @@ class NotesController
         //return $this->notesService->create($note,$id);
     }
 
-    public function update($id_note, Request $request)
+    public function update($id_note,$new_note ,Request $request)
     {
-        //$note = $this->getDataFromRequest($request);
-       $note = $request->server->get("QUERY_STRING");
-
-        var_dump($note);
+    
+        //$id = $request->request->get("id_note");
+       //$note = $request->server->get("QUERY_STRING");
+        print_r($new_note);
+        //var_dump($note);
         return var_dump($request);
         
         //return var_dump($note);

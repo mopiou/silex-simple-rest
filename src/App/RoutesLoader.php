@@ -29,7 +29,7 @@ class RoutesLoader
         $api->get('/notes', "notes.controller:getAll");
         // $api->post('/notes', "notes.controller:save");
         $api->post('/notes', "notes.controller:create");
-        $api->put('/notes/{id_note}', "notes.controller:update");
+        $api->put('/notes/{id_note}/{new_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
