@@ -33,27 +33,19 @@ class NotesController
         //$note = $this->getDataFromRequest($request);
         return new JsonResponse(array("id" => $this->notesService->create($note,$id)));
 
-        //return $this->notesService->create($note,$id);
     }
 
     public function update($id_note,$new_note ,Request $request)
     {
-    
-        //$id = $request->request->get("id_note");
-       //$note = $request->server->get("QUERY_STRING");
-        //print_r($id_note);
-        //print_r($new_note);
-        //return;
-        //return var_dump($request);
-
+   
       return $this->notesService->update($id_note,$new_note);
-        //return new JsonResponse($new_note);
+    
 
     }
 
     public function delete($id_note)
     {
-            //return $id_note;
+    
         return new JsonResponse($this->notesService->delete($id_note));
 
     }
