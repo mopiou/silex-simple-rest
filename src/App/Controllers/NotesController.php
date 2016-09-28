@@ -43,7 +43,7 @@ class NotesController
             return new Response('Missing parameter: note', 400);
         }
 
-        if ($new_note <8) {
+        if ($new_note <0) {
             return new Response('Parametere Negatif: note', 400);
         }
 
