@@ -32,8 +32,8 @@ class NotesService extends BaseService
         );
 
         //$this->db->where('id', $id);
-        return $this->db->update('notes', $data);
-
+        $this->db->update('notes', $data);
+        return $data;
 
 
         print_r($id_note);
