@@ -43,6 +43,7 @@ class NotesController
 
     }
 
+
     public function delete($id_note)
     {
     
@@ -55,5 +56,18 @@ class NotesController
         return $note = array(
             "note" => $request->request->get("note")
         );
+    }
+
+    public function update2($id_note,Request $request)
+    {
+
+        print_r($id_note);
+
+       return var_dump($request);
+
+   
+        return $this->notesService->update($id_note,$new_note);
+    
+
     }
 }

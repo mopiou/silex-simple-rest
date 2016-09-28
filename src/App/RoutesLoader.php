@@ -27,8 +27,10 @@ class RoutesLoader
         $api = $this->app["controllers_factory"];
 
         $api->get('/notes', "notes.controller:getAll");
-        // $api->post('/notes', "notes.controller:save");
         $api->post('/notes', "notes.controller:create");
+
+        $api->put('/notes/{id_note}', "notes.controller:update2");
+
         $api->put('/notes/{id_note}/{new_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
 
