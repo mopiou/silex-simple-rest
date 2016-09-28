@@ -23,14 +23,25 @@ class NotesService extends BaseService
       
     }
 
-    function update($id_note, $new_note)
+    function update($id_note, $note)
     {
         print_r($id_note);
-        print_r($new_note);
+        print_r($note);
 
-        // $data = array(
-        // 'new_note' => $new_note
-        // );
+        $data = array(
+        'note' => $note
+        );
+
+
+
+        // $this->db->set('field', 'field+1');
+        // $this->db->where('id', 2);
+        // $this->db->update('mytable');
+
+
+
+
+      
 
         // $this->db->where('id_note', $id_note);
         // $this->db->update('notes', $data);
@@ -40,7 +51,7 @@ class NotesService extends BaseService
         //return $this->db->update('notes', $new_note, "id_note = ".$id_note);
 
 
-        return $this->db->update('notes', $new_note, "id_note = 29");
+        return $this->db->update('notes', $data, "id_note = 29");
 
         //return $this->db->update('notes', $new_note, array('id_note' => $id_note));
 
