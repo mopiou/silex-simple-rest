@@ -7,7 +7,7 @@ class NotesService extends BaseService
 
     public function getAll()
     {
-        return $this->db->fetchAll("SELECT * FROM user");
+        return $this->db->fetchAll("SELECT * FROM notes");
     }
 
     function create($note,$id_note)
