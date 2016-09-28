@@ -41,8 +41,8 @@ class NotesController
     
         //$id = $request->request->get("id_note");
        //$note = $request->server->get("QUERY_STRING");
-        print_r($id_note);
-        print_r($new_note);
+        //print_r($id_note);
+        //print_r($new_note);
         //return;
         //return var_dump($request);
 
