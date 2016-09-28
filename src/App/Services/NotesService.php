@@ -28,20 +28,21 @@ class NotesService extends BaseService
         print_r($id_note);
         print_r($note);
 
-        // $data = array(
-        // 'note' => $note
-        // );
+        $data = array(
+        'note' => $note
+        );
 
 
 
-        $this->db->set('note', $note);
-        $this->db->where('id_note', $id_note);
-        $this->db->update('notes');
+        // $this->db->set('note', $note);
+        // $this->db->where('id_note', $id_note);
+        // $this->db->update('notes');
 
-        return $note;
+        // return $note;
  
 
 
+        return $this->db->update('notes', $data, array('id_note' => $id_note));
 
 
       
@@ -56,7 +57,6 @@ class NotesService extends BaseService
 
         //return $this->db->update('notes', $data, "id_note = 29");
 
-        //return $this->db->update('notes', $new_note, array('id_note' => $id_note));
 
     }
 
