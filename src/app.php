@@ -12,6 +12,7 @@ use App\ServicesLoader;
 use App\RoutesLoader;
 use Carbon\Carbon;
 
+$app['debug'] = true;
 date_default_timezone_set('Europe/Paris');
 
 define("ROOT_PATH", __DIR__ . "/..");
