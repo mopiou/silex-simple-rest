@@ -44,7 +44,7 @@ class NotesController
         }
 
         if ($new_note <8) {
-            return $app->abort(404, "Post $id does not exist.");
+            $app->abort(404, "Post $id does not exist.");
             //return $app->error('Parametere Negatif: note', 400);
            // return $app->json('Parametere Negatif: note', 400);
         }
