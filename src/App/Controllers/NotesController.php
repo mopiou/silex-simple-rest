@@ -35,14 +35,17 @@ class NotesController
 
     }
 
-    public function update($id_note,$new_note ,Request $request)
+    public function update($id_note,Request $request)
     {
+        $new_note = $request->headers->get("note");
+        
+        print_r($id_note);
+        print_r('note=');
+        print_r($new_note);
    
-      return $this->notesService->update($id_note,$new_note);
+        return $this->notesService->update($id_note,$new_note);
     
-
     }
-
 
     public function delete($id_note)
     {
@@ -56,19 +59,5 @@ class NotesController
         return $note = array(
             "note" => $request->request->get("note")
         );
-    }
-
-    public function update2($id_note,Request $request)
-    {
-
-        print_r($id_note);
-        print_r('note=');
-
-        $new_note = $request->headers->get("note");
-        print_r($new_note);
-   
-        return $this->notesService->update($id_note,$new_note);
-    
-
     }
 }
