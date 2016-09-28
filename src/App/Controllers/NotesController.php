@@ -62,7 +62,10 @@ class NotesController
     {
 
         print_r($id_note);
+        print_r('note=');
 
+        $note = $request->request->get("note");
+        print_r($note);
        return var_dump($request);
 
    
