@@ -34,8 +34,8 @@ class NotesService extends BaseService
 
 
 
-        $this->db->set('note', '70',false);
-        $this->db->where('id_note', 29);
+        $this->db->set('note', $note);
+        $this->db->where('id_note', $id_note);
         $this->db->update('notes');
 
         return $note;
