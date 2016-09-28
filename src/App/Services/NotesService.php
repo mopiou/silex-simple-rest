@@ -25,8 +25,9 @@ class NotesService extends BaseService
 
     function update($id_note, $new_note)
     {
-        
-        return $this->db->update('notes', $new_note, array("id_note" => $id_note));
+
+       return print_r($id_note);
+        return $this->db->update('notes', $new_note, ['id_note' => $id_note]);
         //$this->db->update('mytable', $data, array('id' => $id));
     }
 
