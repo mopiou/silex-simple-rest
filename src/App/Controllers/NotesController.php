@@ -40,14 +40,11 @@ class NotesController
         $new_note = $request->headers->get("note");
 
         if (!$request->headers->get("note")) {
-            return $app->json('Missing parameter: note', 400);
+            return new Response('Missing parameter: note', 400);
         }
 
         if ($new_note <8) {
-             return new Response('Parametere Negatif: note', 400);
-            //$app->abort(404, "Post $id does not exist.");
-            //$app->error('Parametere Negatif: note', 400);
-           // return $app->json('Parametere Negatif: note', 400);
+            return new Response('Parametere Negatif: note', 400);
         }
 
         print_r($id_note);
