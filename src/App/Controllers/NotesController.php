@@ -43,7 +43,7 @@ class NotesController
             return $app->json('Missing parameter: note', 400);
         }
 
-        if ($new_note <10) {
+        if ($new_note <0) {
 
             return $app->error('Parametere Negatif: note', 400);
            // return $app->json('Parametere Negatif: note', 400);
