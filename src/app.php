@@ -12,6 +12,11 @@ use App\ServicesLoader;
 use App\RoutesLoader;
 use Carbon\Carbon;
 
+
+
+use App\users\ServicesLoader;
+use App\users\RoutesLoader;
+
 $app['debug'] = true;
 date_default_timezone_set('Europe/Paris');
 
@@ -57,6 +62,8 @@ $app->register(new MonologServiceProvider(), array(
     "monolog.name" => "application"
 ));
 
+
+
 //load services
 $servicesLoader = new App\ServicesLoader($app);
 $servicesLoader->bindServicesIntoContainer();
@@ -64,6 +71,24 @@ $servicesLoader->bindServicesIntoContainer();
 //load routes
 $routesLoader = new App\RoutesLoader($app);
 $routesLoader->bindRoutesToControllers();
+
+
+
+//teste MODULES USERS
+
+//load services
+$servicesLoaderUsers = new App\ServicesLoaderUsers($app);
+$servicesLoaderUsers->bindServicesIntoContainerUsers();
+
+//load routes
+$routesLoaderUsers = new App\RoutesLoaderUsers($app);
+$routesLoaderUsers->bindRoutesToControllersUsers();
+
+
+
+
+//FIn modules
+
 
 $app->error(function (\Exception $e, $code) use ($app) {
     $app['monolog']->addError($e->getMessage());
