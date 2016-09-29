@@ -50,7 +50,7 @@ class UsersController
     public function update($id_user,Request $request)
     {
 
-       // return var_dump($request);
+        return var_dump($request);
        
 
         $prenom = $request->headers->get("prenom");
