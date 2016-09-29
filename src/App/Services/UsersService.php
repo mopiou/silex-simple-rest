@@ -7,7 +7,7 @@ class UsersService extends BaseService
 
     public function getAll()
     {
-        return $this->db->fetchAll("SELECT * FROM users");
+        return $this->db->fetchAll("SELECT * FROM user");
     }
 
     function create($note,$id_note)
