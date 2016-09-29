@@ -36,7 +36,12 @@ class RoutesLoader
         $api->put('/notes/{id_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
 //fin notes
+
+//users
         $api->get('/users', "users.controller:getAll");
+        $api->post('/users', "users.controller:create");
+        $api->put('/users/{id_user}', "users.controller:update");
+        $api->delete('/users/{id_user}', "users.controller:delete");
 
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);

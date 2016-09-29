@@ -10,15 +10,24 @@ class UsersService extends BaseService
         return $this->db->fetchAll("SELECT * FROM user");
     }
 
-    function create($note,$id_note)
+    function create($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)
     {
         
         $data = array(
-        'id_note' => $id_note,
-        'note' => $note
+        'id_user' => default,
+        'prenom' => $prenom,
+        'nom' => $nom,
+        'email' => $email,
+        'id_genre' => $id_genre,
+        'age' => $age,
+        'description' => $description,
+        'password' => $password,
+        'ville' => $ville,
+        'date_inscription' => $date_inscription,
+        'super_like' => $super_like
         );
 
-        $this->db->insert('notes', $data);
+        $this->db->insert('user', $data);
         return $data;
       
     }
