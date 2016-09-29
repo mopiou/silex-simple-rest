@@ -77,12 +77,12 @@ $routesLoader->bindRoutesToControllers();
 //teste MODULES USERS
 
 //load services
-// $servicesLoaderUsers = new App\ServicesLoaderUsers($app);
-// $servicesLoaderUsers->bindServicesIntoContainerUsers();
+$servicesLoaderUsers = new App\ServicesLoaderUsers($app);
+$servicesLoaderUsers->bindServicesIntoContainerUsers();
 
-// //load routes
-// $routesLoaderUsers = new App\RoutesLoaderUsers($app);
-// $routesLoaderUsers->bindRoutesToControllersUsers();
+//load routes
+$routesLoaderUsers = new App\RoutesLoaderUsers($app);
+$routesLoaderUsers->bindRoutesToControllersUsers();
 
 
 
