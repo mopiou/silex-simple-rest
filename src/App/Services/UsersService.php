@@ -14,7 +14,7 @@ class UsersService extends BaseService
     {
         
         $data = array(
-        'id_user' => default,
+        'id_user' => 'default',
         'prenom' => $prenom,
         'nom' => $nom,
         'email' => $email,
