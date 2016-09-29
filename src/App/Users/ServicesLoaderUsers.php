@@ -4,7 +4,7 @@ namespace App;
 
 use Silex\Application;
 
-class ServicesLoader
+class ServicesLoaderUsers
 {
     protected $app;
 
@@ -13,10 +13,10 @@ class ServicesLoader
         $this->app = $app;
     }
 
-    public function bindServicesIntoContainer()
+    public function bindServicesIntoContainerUsers()
     {
-        $this->app['notes.service'] = $this->app->share(function () {
-            return new Services\NotesService($this->app["db"]);
+        $this->app['users.service'] = $this->app->share(function () {
+            return new Services\UsersService($this->app["db"]);
         });
     }
 }
