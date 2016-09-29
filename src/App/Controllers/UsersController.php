@@ -27,7 +27,7 @@ class UsersController
         // return $app->json('Missing parameter: note', 400);
         // }
 
-        return var_dump($request);
+        //return var_dump($request);
 
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
