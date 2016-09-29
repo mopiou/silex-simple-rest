@@ -50,20 +50,19 @@ class UsersController
     public function update($id_user,Request $request)
     {
 
-        return var_dump($request);
-        $new_note = $request->headers->get("note");
+       // return var_dump($request);
+       
 
-
-        $prenom = $request->request->get("prenom");
-        $nom = $request->request->get("nom");
-        $email = $request->request->get("email");
-        $id_genre = $request->request->get("id_genre");
-        $age = $request->request->get("age");
-        $description = $request->request->get("description");
-        $password = $request->request->get("password");
-        $ville = $request->request->get("ville");
-        $date_inscription = $request->request->get("date_inscription");
-        $super_like = $request->request->get("super_like");
+        $prenom = $request->headers->get("prenom");
+        $nom = $request->headers->get("nom");
+        $email = $request->headers->get("email");
+        $id_genre = $request->headers->get("id_genre");
+        $age = $request->headers->get("age");
+        $description = $request->headers->get("description");
+        $password = $request->headers->get("password");
+        $ville = $request->headers->get("ville");
+        $date_inscription = $request->headers->get("date_inscription");
+        $super_like = $request->headers->get("super_like");
 
         // if (!$request->headers->get("note")) {
         //     return new Response('Missing parameter: note', 400);
@@ -73,11 +72,8 @@ class UsersController
         //     return new Response('Parametere Negatif: note', 400);
         // }
 
-        print_r($id_note);
-        print_r('note=');
-        print_r($new_note);
    
-        return $this->usersService->update($id_note,$new_note);
+        return $this->usersService->update($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like);
     
     }
 
