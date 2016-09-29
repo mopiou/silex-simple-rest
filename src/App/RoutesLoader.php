@@ -20,6 +20,10 @@ class RoutesLoader
         $this->app['notes.controller'] = $this->app->share(function () {
             return new Controllers\NotesController($this->app['notes.service']);
         });
+
+        $this->app['users.controller'] = $this->app->share(function () {
+            return new Controllers\UsersController($this->app['users.service']);
+        });
     }
 
     public function bindRoutesToControllers()
@@ -32,6 +36,7 @@ class RoutesLoader
         $api->put('/notes/{id_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
 //fin notes
+        $api->get('/users', "users.controller:getAll");
 
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
