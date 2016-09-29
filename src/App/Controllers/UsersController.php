@@ -47,7 +47,7 @@ class UsersController
 
     }
 
-    public function update($id_note,Request $request)
+    public function update($id_user,Request $request)
     {
         $new_note = $request->headers->get("note");
 

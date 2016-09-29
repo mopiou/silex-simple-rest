@@ -32,14 +32,24 @@ class UsersService extends BaseService
       
     }
 
-    function update($id_note, $note)
+    function update($id_user, $prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)
     {
-     
-        $data = array(
-        'note' => $note
-        );
 
-        return $this->db->update('notes', $data, array('id_note' => $id_note));
+        $data = array(
+
+        'prenom' => $prenom,
+        'nom' => $nom,
+        'email' => $email,
+        'id_genre' => $id_genre,
+        'age' => $age,
+        'description' => $description,
+        'password' => $password,
+        'ville' => $ville,
+        'date_inscription' => $date_inscription,
+        'super_like' => $super_like
+        );
+            
+        return $this->db->update('user', $data, array('id_user' => $id_user));
 
     }
 
