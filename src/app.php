@@ -14,8 +14,8 @@ use Carbon\Carbon;
 
 
 
-use App\users\ServicesLoader;
-use App\users\RoutesLoader;
+// use App\users\ServicesLoader;
+// use App\users\RoutesLoader;
 
 $app['debug'] = true;
 date_default_timezone_set('Europe/Paris');
@@ -77,12 +77,12 @@ $routesLoader->bindRoutesToControllers();
 //teste MODULES USERS
 
 //load services
-$servicesLoaderUsers = new App\ServicesLoaderUsers($app);
-$servicesLoaderUsers->bindServicesIntoContainerUsers();
+// $servicesLoaderUsers = new App\ServicesLoaderUsers($app);
+// $servicesLoaderUsers->bindServicesIntoContainerUsers();
 
-//load routes
-$routesLoaderUsers = new App\RoutesLoaderUsers($app);
-$routesLoaderUsers->bindRoutesToControllersUsers();
+// //load routes
+// $routesLoaderUsers = new App\RoutesLoaderUsers($app);
+// $routesLoaderUsers->bindRoutesToControllersUsers();
 
 
 
