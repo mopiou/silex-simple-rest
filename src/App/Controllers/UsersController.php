@@ -64,7 +64,7 @@ class UsersController
              print_r($ville);
               print_r($email);
 
-              
+              print_r($id_user);
    
 
         // if (!$request->headers->get("note")) {
