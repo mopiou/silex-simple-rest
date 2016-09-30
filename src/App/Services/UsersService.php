@@ -35,9 +35,6 @@ class UsersService extends BaseService
     function update($id_user,$prenom,$nom,$email,$id_genre,$age,$description,$ville)
     {
 
-
-        echo $id_genre;
-
         $data = array(
         'nom' => $nom,
         'prenom' => $prenom,
