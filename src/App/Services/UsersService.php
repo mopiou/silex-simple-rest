@@ -49,7 +49,7 @@ class UsersService extends BaseService
       
         );
             
-        return $this->db->update('users', $data, array('id_user' => $id_user));
+        return $this->db->update('user', $data, array('id_user' => $id_user));
 
     }
 

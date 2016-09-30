@@ -45,8 +45,6 @@ class UsersController
     public function update($id_user,Request $request)
     {
 
-        //return var_dump($request);
-       
 
         $prenom = $request->headers->get("prenom");
         $nom = $request->headers->get("nom");
@@ -56,16 +54,6 @@ class UsersController
         $description = $request->headers->get("description");    
         $ville = $request->headers->get("ville");
 
-        print_r($prenom);
-         print_r($nom);
-          print_r($id_genre);
-           print_r($age);
-            print_r($description);
-             print_r($ville);
-              print_r($email);
-
-              print_r($id_user);
-   
 
         // if (!$request->headers->get("note")) {
         //     return new Response('Missing parameter: note', 400);
