@@ -21,6 +21,11 @@ class UsersController
         return new JsonResponse($this->usersService->getAll());
     } 
 
+    public function getUser($id_user)
+    {
+        return new JsonResponse($this->usersService->getUser($id_user));
+    } 
+
     public function create(Request $request)
     {
         // if (!$request->request->has('note')) {

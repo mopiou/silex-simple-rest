@@ -39,10 +39,14 @@ class RoutesLoader
 
 //users
         $api->get('/users', "users.controller:getAll");
+        $api->get('/users/{id_user}', "users.controller:getUser");
         $api->post('/users', "users.controller:create");
         $api->put('/users/{id_user}', "users.controller:update");
         $api->delete('/users/{id_user}', "users.controller:delete");
 
+//Fin users
+
+//
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
     }
