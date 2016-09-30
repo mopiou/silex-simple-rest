@@ -28,10 +28,11 @@ class NotesController
         }
 
         $id = $request->request->get("id_note");
+        $id_user = $request->request->get("id_user");
         $note = $request->request->get("note");
 
         //$note = $this->getDataFromRequest($request);
-        return new JsonResponse(array("id" => $this->notesService->create($note,$id)));
+        return new JsonResponse(array("id" => $this->notesService->create($id,$id_user,$note)));
 
     }
 

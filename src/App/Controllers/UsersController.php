@@ -77,16 +77,16 @@ class UsersController
     
     }
 
-    public function delete($id_note)
+    public function delete($id_user)
     {
-        return new JsonResponse($this->usersService->delete($id_note));
+        return new JsonResponse($this->usersService->delete($id_user));
 
     }
 
-    public function getDataFromRequest(Request $request)
-    {
-        return $note = array(
-            "note" => $request->request->get("note")
-        );
-    }
+    // public function getDataFromRequest(Request $request)
+    // {
+    //     return $note = array(
+    //         "note" => $request->request->get("note")
+    //     );
+    // }
 }

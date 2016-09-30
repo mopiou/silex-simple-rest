@@ -10,11 +10,12 @@ class NotesService extends BaseService
         return $this->db->fetchAll("SELECT * FROM notes");
     }
 
-    function create($note,$id_note)
+    function create($id_note,$id_user,$note)
     {
         
         $data = array(
         'id_note' => $id_note,
+        'id_user' => $id_user,
         'note' => $note
         );
 
