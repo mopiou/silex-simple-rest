@@ -55,6 +55,16 @@ class UsersController
         $age = $request->headers->get("age");
         $description = $request->headers->get("description");    
         $ville = $request->headers->get("ville");
+
+        print_r($prenom);
+         print_r($nom);
+          print_r($id_genre);
+           print_r($age);
+            print_r($description);
+             print_r($ville);
+              print_r($email);
+
+              
    
 
         // if (!$request->headers->get("note")) {
