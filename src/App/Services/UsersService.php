@@ -9,7 +9,8 @@ class UsersService extends BaseService
     {
         //return $this->db->fetchAll("SELECT * FROM user");
         //return $this->db->get('user');
-       return $sql = $this->db->get_compiled_select('user');
+       $sql = $this->db->get_compiled_select('user');
+       echo $sql;
     }
 
 
