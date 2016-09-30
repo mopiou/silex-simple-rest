@@ -36,6 +36,7 @@ class UsersService extends BaseService
     {
 
 
+        echo $id_genre;
 
         $data = array(
         'nom' => $nom,
