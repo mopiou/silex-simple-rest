@@ -7,17 +7,18 @@ class UsersService extends BaseService
 
     public function getAll()
     {
-        return $this->db->fetchAll("SELECT * FROM user");
+        //return $this->db->fetchAll("SELECT * FROM user");
+        return $this->db->get('user');
     }
 
 
     public function getUser($id_user)
     {
-        //return $this->db->fetchAll("SELECT * FROM user where id_user=".$id_user);
+        return $this->db->fetchAll("SELECT * FROM user where id_user=".$id_user);
       
       //return $this->db->get("user", array("id_user" => $id_user)); 
-      $this->db->get('user');
-     return $this->db->where('id_user', $id_user);
+     // $this->db->get('user');
+   //  return $this->db->where('id_user', $id_user);
 
     }
 
