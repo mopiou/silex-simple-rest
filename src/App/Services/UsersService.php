@@ -13,7 +13,7 @@ class UsersService extends BaseService
 
     public function getUser($id_user)
     {
-        return $this->db->fetchAll("SELECT * FROM user where id_user=".$id_user);
+        return $this->db->select("SELECT * FROM user where id_user=".$id_user);
        //return $this->db->getwhere('user', array('id_user' => $id_user));    
     }
 
