@@ -27,8 +27,6 @@ class UsersController
         // return $app->json('Missing parameter: note', 400);
         // }
 
-        //return var_dump($request);
-
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
         $email = $request->request->get("email");
@@ -40,9 +38,6 @@ class UsersController
         $date_inscription = $request->request->get("date_inscription");
         $super_like = $request->request->get("super_like");
        
-
-
-        //$note = $this->getDataFromRequest($request);
         return new JsonResponse(array("id" => $this->usersService->create($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)));
 
     }
