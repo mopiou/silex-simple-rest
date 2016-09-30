@@ -45,7 +45,7 @@ class UsersController
     public function update($id_user,Request $request)
     {
 
-        return var_dump($request);
+        //return var_dump($request);
        
 
         $prenom = $request->headers->get("prenom");
@@ -53,11 +53,9 @@ class UsersController
         $email = $request->headers->get("email");
         $id_genre = $request->headers->get("id_genre");
         $age = $request->headers->get("age");
-        $description = $request->headers->get("description");
-        $password = $request->headers->get("password");
+        $description = $request->headers->get("description");    
         $ville = $request->headers->get("ville");
-        $date_inscription = $request->headers->get("date_inscription");
-        $super_like = $request->headers->get("super_like");
+   
 
         // if (!$request->headers->get("note")) {
         //     return new Response('Missing parameter: note', 400);
@@ -68,7 +66,7 @@ class UsersController
         // }
 
    
-        return $this->usersService->update($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like);
+        return $this->usersService->update($prenom,$nom,$email,$id_genre,$age,$description,$ville);
     
     }
 

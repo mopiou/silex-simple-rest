@@ -32,7 +32,7 @@ class UsersService extends BaseService
       
     }
 
-    function update($id_user, $prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)
+    function update($id_user,$prenom,$nom,$email,$id_genre,$age,$description,$ville)
     {
 
         $data = array(
@@ -43,10 +43,8 @@ class UsersService extends BaseService
         'id_genre' => $id_genre,
         'age' => $age,
         'description' => $description,
-        'password' => $password,
-        'ville' => $ville,
-        'date_inscription' => $date_inscription,
-        'super_like' => $super_like
+        'ville' => $ville
+      
         );
             
         return $this->db->update('user', $data, array('id_user' => $id_user));
