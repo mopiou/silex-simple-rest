@@ -64,7 +64,7 @@ class UsersController
         // }
 
    
-        return $this->usersService->update($prenom,$nom,$email,$id_genre,$age,$description,$ville);
+        return $this->usersService->update( $id_user,$prenom,$nom,$email,$id_genre,$age,$description,$ville);
     
     }
 
