@@ -8,8 +8,8 @@ class UsersService extends BaseService
     public function getAll()
     {
         //return $this->db->fetchAll("SELECT * FROM user");
-        //return $this->db->get('user');
-       $sql = $this->db->get_compiled_select('user');
+         $sql = $this->db->get('user');
+      // $sql = $this->db->get_compiled_select('user');
        echo $sql;
     }
 
