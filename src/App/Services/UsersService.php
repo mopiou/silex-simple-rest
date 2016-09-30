@@ -38,9 +38,8 @@ class UsersService extends BaseService
 
 
         $data = array(
-
-        'prenom' => $prenom,
         'nom' => $nom,
+        'prenom' => $prenom,
         'email' => $email,
         'id_genre' => $id_genre,
         'age' => $age,
