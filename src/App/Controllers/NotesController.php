@@ -38,10 +38,14 @@ class NotesController
 
     public function update($id_note,Request $request)
     {
+         $new_note = $request->request->get("note");
 
+         print_r($new_note);
         return var_dump($request);
-        
-        $new_note = $request->headers->get("note");
+
+
+
+        //$new_note = $request->headers->get("note");
 
         if (!$request->headers->get("note")) {
             return new Response('Missing parameter: note', 400);
