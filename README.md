@@ -81,6 +81,71 @@ see LICENSE file.
 
 
 
+Doc application Suite
 
+MODULE NOTE --------
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/notes
+	Affiche toutes les notes
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/notes
+	Ajout d'une note : {id_note}{id_user}{note}(int,int,int)
+
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/notes/29{id_note}
+	Modifie une note en function de son id_note : {note}(int)
+
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/notes/{id_note}
+	Supprime une note 
+
+FIN NOTE---------------
+
+MODULE USER --------
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/users
+	Affiche toutes les users
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/users
+	Ajout d'un user :
+
+	{"id_facebook": "bigint",
+    "prenom": "varchar",
+    "nom": "varchar",
+    "email": "mail",
+    "id_genre": "char(1)",
+    "age": "int(11)",
+    "description": "varchar",
+    "password": "varchar",
+    "ville": "varchar",
+    "date_inscription": "date",
+    "super_like": "int"}
+	
+
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
+	Modifie un user en function de son id_user :
+	{
+
+	    "prenom": "varchar",
+	    "nom": "varchar",
+	    "email": "mail",
+	    "id_genre": "char(1)",
+	    "age": "int(11)",
+	    "description": "varchar",
+	    "password": "varchar",
+	    "ville": "varchar",
+	
+	}
+		 
+
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
+	Supprime un user 
+
+FIN USER---------------
 
 
