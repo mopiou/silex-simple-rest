@@ -38,6 +38,9 @@ class NotesController
 
     public function update($id_note,Request $request)
     {
+
+        return var_dump($request);
+        
         $new_note = $request->headers->get("note");
 
         if (!$request->headers->get("note")) {
