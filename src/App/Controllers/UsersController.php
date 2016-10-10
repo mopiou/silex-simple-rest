@@ -51,13 +51,13 @@ class UsersController
     {
 
 
-        $prenom = $request->headers->get("prenom");
-        $nom = $request->headers->get("nom");
-        $email = $request->headers->get("email");
-        $id_genre = $request->headers->get("id_genre");
-        $age = $request->headers->get("age");
-        $description = $request->headers->get("description");    
-        $ville = $request->headers->get("ville");
+        $prenom = $request->request->get("prenom");
+        $nom = $request->request->get("nom");
+        $email = $request->request->get("email");
+        $id_genre = $request->request->get("id_genre");
+        $age = $request->request->get("age");
+        $description = $request->request->get("description");    
+        $ville = $request->request->get("ville");
 
 
         // if (!$request->headers->get("note")) {
