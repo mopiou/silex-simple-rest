@@ -106,11 +106,11 @@ MODULE USER --------
 
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/users
-	Affiche toutes les users
+		Affiche toutes les users
 
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/users
-	Ajout d'un user :
+		Ajout d'un user :
 
 	{"id_facebook": "bigint",
     "prenom": "varchar",
@@ -127,7 +127,7 @@ MODULE USER --------
 
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
-	Modifie un user en function de son id_user :
+		Modifie un user en function de son id_user :
 	{
 
 	    "prenom": "varchar",
@@ -140,12 +140,29 @@ MODULE USER --------
 	    "ville": "varchar",
 	
 	}
-		 
-
 
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
-	Supprime un user 
+		Supprime un user 
+
+	
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/description/{id_user}
+		Modifie sa description en function de son id_user :
+	{
+	    "description": "varchar",	  
+	}
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/sex/{id_user}
+		Modifie son sex en function de son id_user :
+	{
+	    "id_genre": "char(1)",	  
+	}
+
+
+
+
 
 FIN USER---------------
+
+
 
 
