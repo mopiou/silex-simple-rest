@@ -105,64 +105,193 @@ FIN NOTE---------------
 MODULE USER --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/users
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user
 		Affiche toutes les users
 
 
-	POST ->   http://test.app-and-go.fr/toto/web/api/v1/users
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/user
 		Ajout d'un user :
+
+		ajout au tables : user, setting,localisation,(photo)
 
 	{"id_facebook": "bigint",
     "prenom": "varchar",
     "nom": "varchar",
     "email": "mail",
-    "id_genre": "char(1)",
+    "id_sex": "char(1)",
     "age": "int(11)",
     "description": "varchar",
     "password": "varchar",
-    "ville": "varchar",
-    "date_inscription": "date",
+    "date_registration": "date",
     "super_like": "int"}
 	
 
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
 		Modifie un user en function de son id_user :
 	{
 
 	    "prenom": "varchar",
 	    "nom": "varchar",
 	    "email": "mail",
-	    "id_genre": "char(1)",
+	    "id_sex": "char(1)",
 	    "age": "int(11)",
 	    "description": "varchar",
 	    "password": "varchar",
-	    "ville": "varchar",
 	
 	}
 
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/users/{id_user}
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
 		Supprime un user 
 
+		supprime au tables : user, setting,localisation,(photo)
+
 	
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/description/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/description/{id_user}
 		Modifie sa description en function de son id_user :
 	{
 	    "description": "varchar",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/users/sex/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/id_sex/{id_user}
 		Modifie son sex en function de son id_user :
 	{
-	    "id_genre": "char(1)",	  
+	    "id_sex": "char(1)",	  
 	}
-
-
-
-
 
 FIN USER---------------
 
 
+MODULE SETTING --------
 
 
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting
+		Affiche toutes les parametre
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/setting
+		Ajout d'un parametre :
+
+	{"id_user": "bigint",
+	"look_sex": "char(1)",
+    "hide_profil": "boolean",
+    "distance_max": "int",
+    "look_age_max": "int",
+    "look_age_min": "int",
+    }
+		
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_sex/{id_user}
+		Modifie son sexe_rechercher en function de son id_user :
+	{
+		"look_sex": "char(1)",	  
+	}
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/distance_max/{id_user}
+		Modifie son sex en function de son id_user :
+	{
+	    "distance_max": "int",	  
+	}
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_max/{id_user}
+		Modifie son age_rechercher_max en function de son id_user :
+	{
+	    "look_age_max": "int",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_min/{id_user}
+		Modifie son age_rechercher_min en function de son id_user :
+	{
+	    "look_age_min": "int",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/hide_profil/{id_user}
+		Modifie si l'utilisateur veut masquer_profil en function de son id_user :
+	{
+	    "hide_profil": "boolean",	  
+	}
+
+FIN SETTING---------------
+
+
+
+MODULE REPORT --------
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/report
+		Affiche toutes les REPORT
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/report
+		Ajout d'un report :
+
+	{"id_report": "bigint",
+	"id_user": "bigint",
+    "date_report": "date",
+    "raison": "varchar",
+    "id_user_report": "bigint",
+    }
+		
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/report/raison/{id_user}
+		Modifie la raison en function de son id_user :
+	{
+		"raison": "varchar",	  
+	}
+
+
+FIN REPORT---------------
+
+
+
+MODULE LOCATION --------
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/location
+		Affiche toutes les location
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/location
+		Ajout d'un location :
+
+	{
+	"id_location": "bigint",
+    "id_user": "bigint",
+    "lng_lat": "varchar",
+    "date_location": "date",
+  	}
+	
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+		Modifie sa lng_lat en function de son id_user :
+	{
+
+	   "lng_lat": "varchar",
+		"date_location": "date",
+	
+	}
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+		Supprime une location function de son id_user :
+
+FIN LOCATION---------------
+
+
+MODULE MATCH --------
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match
+		Affiche toutes les MATCH
+
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match
+		Ajout d'un MATCH :
+
+	{
+	"id_match": "bigint",
+    "id_user": "bigint",
+	"date_match": "date",
+    "lng_lat": "varchar",
+    "id_user_matched": "bigint",
+  	}
+	
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/match/{id_user}
+		Supprime un match function de son id_user :
+
+FIN MATCH---------------
