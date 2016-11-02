@@ -137,7 +137,6 @@ MODULE USER --------
 	    "id_sex": "char(1)",
 	    "age": "int(11)",
 	    "description": "varchar",
-	    "password": "varchar",
 	
 	}
 
@@ -152,6 +151,7 @@ MODULE USER --------
 	{
 	    "description": "varchar",	  
 	}
+	
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/change_sex/{id_user}
 		Modifie son sex en function de son id_user :
