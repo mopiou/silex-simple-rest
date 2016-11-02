@@ -23,6 +23,9 @@ class UsersService extends BaseService
 
     }
 
+
+
+
     function create($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)
     {
         
@@ -62,6 +65,23 @@ class UsersService extends BaseService
         return $this->db->update('user', $data, array('id_user' => $id_user));
 
     }
+
+
+
+    function setDescription($id_user,$description)
+    {
+
+        $data = array(
+        'description' => $description
+      
+        );
+            
+        return $this->db->update('user', $data, array('id_user' => $id_user));
+
+    }
+
+
+    
 
     function delete($id_user)
     {

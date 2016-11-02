@@ -46,6 +46,16 @@ class UsersController
         return new JsonResponse(array("id" => $this->usersService->create($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)));
 
     }
+    
+    public function setDescription($id_user,Request $request){
+
+        $description = $request->request->get("description");    
+
+        return $this->usersService->setDescription($id_user,$description);
+
+    }
+
+
 
     public function update($id_user,Request $request)
     {

@@ -42,6 +42,7 @@ class RoutesLoader
         $api->get('/users/{id_user}', "users.controller:getUser");
         $api->post('/users', "users.controller:create");
         $api->put('/users/{id_user}', "users.controller:update");
+        $api->put('/users/description{id_user}', "users.controller:setDescription");
         $api->delete('/users/{id_user}', "users.controller:delete");
 
 //Fin users
