@@ -49,7 +49,6 @@ class UsersController
     public function setDescription($id_user,Request $request){
 
         $description = $request->request->get("description");    
-
         return $this->usersService->setDescription($id_user,$description);
 
     }

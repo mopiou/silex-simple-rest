@@ -61,7 +61,6 @@ class UsersService extends BaseService
         $data = array(
         'id_genre' => $id_genre 
         );
-            
         return $this->db->update('user', $data, array('id_user' => $id_user));
     }
 
