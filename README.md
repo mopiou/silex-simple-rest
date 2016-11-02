@@ -276,22 +276,147 @@ FIN LOCATION---------------
 MODULE MATCH --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match
-		Affiche toutes les MATCH
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match{id_user}
+		Affiche toutes les MATCH d'un user
 
 
-	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match
-		Ajout d'un MATCH :
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match/like
 
-	{
-	"id_match": "bigint",
-    "id_user": "bigint",
-	"date_match": "date",
-    "lng_lat": "varchar",
-    "id_user_matched": "bigint",
-  	}
+	Renvoie : Ajout d'un MATCH  et envoie {match: match_result} :
+
+	Verification dans la table dislike pour voir si il y a dislike de la part de id_user_target
+
+	Verification dans la table PENDING_VALIDATION_MATCH pour voir si il y a match possible
+
+	like	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match/verification
+
+	Si l'id_user est la table PENDING_VALIDATION_MATCH alors ajout dans la table MATCH :
+
+		{
+		"id_match": "bigint",
+		"id_user": "bigint",
+		"date_match": "date",
+		"lng_lat": "varchar",
+		"id_user_matched": "bigint",
+		}
+	
+	Sinon
+
+		Si
+			table dislike:  id_user = id_user_target
+			Rien faire
+
+		Sinon	
+
+			POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
+				Ajout d'une attente de validation du match :
+
+				{
+				"id_validation": "bigint",
+				"id_user": "bigint",
+				"id_user_target": "bigint",
+				}
+
+		FIN
 	
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/match/{id_user}
 		Supprime un match function de son id_user :
+		et
+		Place id_user dans Dislike 
 
 FIN MATCH---------------
+
+
+***************** MODULE PENDING_VALIDATION_MATCH --------  
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
+		Affiche toutes les liste d'attente de validation de match
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match{id_user}
+	Affiche toutes les liste d'attente de validation de match d'un user
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
+		Ajout d'une attente de validation du match :
+
+		{
+		"id_validation": "bigint",
+		"id_user": "bigint",
+		"id_user_target": "bigint",
+		}
+	
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match/verification
+		renvoie 1 son id_user est dans remplie dans la table en id_user_target avec comme id_user_target l'id_user :
+
+		{
+		"id_user": "bigint",
+		"id_user_target": "bigint",
+		}
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match/{id_user}
+		Supprime les attentes de validation du match en function de son id_user :
+
+FIN PENDING_VALIDATION_MATCH --------
+
+
+MODULE PHOTOS --------
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/photos{id_user}
+		Affiche toutes les photos de l'user
+
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
+		Modifie ou ajoute sa photo1 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/2/{id_user}
+		Modifie sa photo2 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/3/{id_user}
+		Modifie sa photo3 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/4/{id_user}
+		Modifie sa photo4 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/5/{id_user}
+		Modifie sa photo5 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/6/{id_user}
+		Modifie sa photo6 en function de son id_user :
+	{
+	    "photo_1": "varchar",	  
+	}
+
+	
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
+		Supprime la photo1 en function de son id_user :
+		
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/2/{id_user}
+		Supprime la photo2 en function de son id_user :
+	
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/3/{id_user}
+		Supprime la photo3 en function de son id_user :
+	
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/4/{id_user}
+		Supprime la photo4 en function de son id_user :
+	
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/5/{id_user}
+		Supprime la photo5 en function de son id_user :
+	
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/6/{id_user}
+		Supprime la photo6 en function de son id_user :
+	
+
+FIN PHOTO---------------
+
