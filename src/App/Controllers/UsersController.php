@@ -38,7 +38,6 @@ class UsersController
         $id_genre = $request->request->get("id_genre");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
-        $password = $request->request->get("password");
         $ville = $request->request->get("ville");
         $date_inscription = $request->request->get("date_inscription");
         $super_like = $request->request->get("super_like");
