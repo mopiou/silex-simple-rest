@@ -153,7 +153,7 @@ MODULE USER --------
 	    "description": "varchar",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/id_sex/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/change_sex/{id_user}
 		Modifie son sex en function de son id_user :
 	{
 	    "id_sex": "char(1)",	  

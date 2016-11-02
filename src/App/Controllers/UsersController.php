@@ -55,11 +55,17 @@ class UsersController
 
     }
 
+    
+    public function setSex($id_user,Request $request){
+
+        $id_genre = $request->request->get("id_genre");
+        return $this->usersService->setSex($id_user,$id_genre);
+
+    }
 
 
     public function update($id_user,Request $request)
     {
-
 
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
@@ -68,7 +74,6 @@ class UsersController
         $age = $request->request->get("age");
         $description = $request->request->get("description");    
         $ville = $request->request->get("ville");
-
 
         // if (!$request->headers->get("note")) {
         //     return new Response('Missing parameter: note', 400);

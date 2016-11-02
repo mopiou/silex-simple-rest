@@ -66,18 +66,20 @@ class UsersService extends BaseService
 
     }
 
-
-
-    function setDescription($id_user,$description)
-    {
-
+    function setSex($id_user,$description) {
         $data = array(
-        'description' => $description
-      
+        'id_genre' => $id_genre 
         );
             
         return $this->db->update('user', $data, array('id_user' => $id_user));
+    }
 
+    function setDescription($id_user,$description) {
+        $data = array(
+        'description' => $description 
+        );
+            
+        return $this->db->update('user', $data, array('id_user' => $id_user));
     }
 
 
