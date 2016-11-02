@@ -57,7 +57,7 @@ class UsersService extends BaseService
         return $this->db->update('user', $data, array('id_user' => $id_user));
     }
 
-    function setSex($id_user,$description) {
+    function setSex($id_user,$id_genre) {
         $data = array(
         'id_genre' => $id_genre 
         );
