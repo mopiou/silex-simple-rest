@@ -21,7 +21,7 @@ class UsersService extends BaseService
 
     }
 
-    function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_inscription,$super_like){
+    function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_registration,$super_like){
 
         $data = array(
         'id_user' => 'default',
@@ -32,7 +32,7 @@ class UsersService extends BaseService
         'email' => $email,
         'age' => $age,
         'description' => $description,
-        'date_registration' => $date_inscription,
+        'date_registration' => $date_registration,
         'super_like' => $super_like
         );
 
