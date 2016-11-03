@@ -41,7 +41,7 @@ class UsersService extends BaseService
       
     }
 
-    function update($id_user,$prenom,$nom,$email,$id_sex,$age,$description,$ville){
+    function update($id_user,$prenom,$nom,$email,$id_sex,$age,$description){
 
         $data = array(
         'nom' => $nom,
@@ -49,11 +49,8 @@ class UsersService extends BaseService
         'email' => $email,
         'id_sex' => $id_sex,
         'age' => $age,
-        'description' => $description,
-        'ville' => $ville
-      
+        'description' => $description      
         );
-            
         return $this->db->update('user', $data, array('id_user' => $id_user));
     }
 
@@ -67,6 +64,14 @@ class UsersService extends BaseService
     function setDescription($id_user,$description) {
         $data = array(
         'description' => $description 
+        );
+            
+        return $this->db->update('user', $data, array('id_user' => $id_user));
+    }
+
+    function setSuper_like($id_user,$super_like) {
+        $data = array(
+        'super_like' => $super_like 
         );
             
         return $this->db->update('user', $data, array('id_user' => $id_user));

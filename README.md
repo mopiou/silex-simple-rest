@@ -159,6 +159,11 @@ MODULE USER --------
 	    "id_sex": "char(1)",	  
 	}
 
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/super_like/{id_user}
+		Modifie son sex en function de son id_user :
+	{
+	    "super_like": "int",	  
+	}
 FIN USER---------------
 
 
