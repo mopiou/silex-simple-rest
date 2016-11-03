@@ -16,57 +16,35 @@ class SettingController
         $this->settingService = $service;
     }
 
-    public function getAll()
-    {
-        return new JsonResponse($this->settingService->getAll());
-    }
-
-    public function create(Request $request)
-    {
-        if (!$request->request->has('note')) {
-        return $app->json('Missing parameter: note', 400);
-        }
-
-        $id = $request->request->get("id_note");
-        $id_user = $request->request->get("id_user");
-        $note = $request->request->get("note");
-
-        //$note = $this->getDataFromRequest($request);
-        return new JsonResponse(array("id" => $this->settingService->create($id,$id_user,$note)));
+    public function getSetting($id_user) {
+        return new JsonResponse($this->settingService->getSetting($id_user));
 
     }
+    public function setLook_sex($id_user,Request $request){
 
-    public function update($id_note,Request $request)
-    {
-        $new_note = $request->request->get("note");
+        $look_sex = $request->request->get("look_sex");    
+        return $this->settingService->setLook_sex($id_user,$look_sex);
+    }
+    public function setDistance_max($id_user,Request $request){
 
-        if (!$request->request->get("note")) {
-            return new Response('Missing parameter: note', 400);
-        }
+        $distance_max = $request->request->get("distance_max");    
+        return $this->settingService->setDistance_max($id_user,$distance_max);
+    }
+    public function setLook_age_max($id_user,Request $request){
 
-        if ($new_note <0) {
-            return new Response('Parametere Negatif: note', 400);
-        }
+        $look_age_max = $request->request->get("look_age_max");    
+        return $this->settingService->setLook_age_max($id_user,$look_age_max);
+    }
+    public function setLook_age_min($id_user,Request $request){
 
-        print_r($id_note);
-        print_r('note=');
-        print_r($new_note);
-   
-        return $this->settingService->update($id_note,$new_note);
-    
+        $look_age_min = $request->request->get("look_age_min");    
+        return $this->settingService->setLook_age_min($id_user,$look_age_min);
     }
 
-    public function delete($id_note)
-    {
-    
-        return new JsonResponse($this->settingService->delete($id_note));
+    public function setHide_profil($id_user,Request $request){
 
+        $hide_profil = $request->request->get("hide_profil");    
+        return $this->settingService->setHide_profil($id_user,$hide_profil);
     }
 
-    public function getDataFromRequest(Request $request)
-    {
-        return $note = array(
-            "note" => $request->request->get("note")
-        );
-    }
 }
