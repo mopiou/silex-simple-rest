@@ -58,6 +58,7 @@ class RoutesLoader
 
 //Setting
 
+
         $api->get('/setting/{id_user}', "setting.controller:getAll");
         $api->post('/setting', "setting.controller:create");
         $api->put('/setting/look_sex/{id_user}', "setting.controller:setLook_sex");
@@ -65,6 +66,7 @@ class RoutesLoader
         $api->put('/setting/look_age_max/{id_user}', "setting.controller:setLook_age_max");
         $api->put('/setting/look_age_min/{id_user}', "setting.controller:setLook_age_min");
         $api->put('/setting/hide_profil/{id_user}', "setting.controller:setHide_profil");
+
 
 //fin Setting
 

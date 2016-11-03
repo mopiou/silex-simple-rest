@@ -40,7 +40,7 @@ class UsersController
         $date_registration = $request->request->get("date_registration");
         $super_like = $request->request->get("super_like");
        
-        return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$date_registration,$super_like)));
+        return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_registration,$super_like)));
 
     }
     
