@@ -22,14 +22,14 @@ class UsersService extends BaseService
     }
 
     function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_inscription,$super_like){
-        
+
         $data = array(
         'id_user' => 'default',
         'id_facebook' => $id_facebook,
+        'id_sex' => $id_sex,
         'prenom' => $prenom,
         'nom' => $nom,
         'email' => $email,
-        'id_sex' => $id_sex,
         'age' => $age,
         'description' => $description,
         'date_inscription' => $date_inscription,
