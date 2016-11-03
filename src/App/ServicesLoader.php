@@ -23,6 +23,11 @@ class ServicesLoader
         $this->app['notes.service'] = $this->app->share(function () {
             return new Services\NotesService($this->app["db"]);
         });
+
+        $this->app['setting.service'] = $this->app->share(function () {
+            return new Services\SettingService($this->app["db"]);
+        });
+
     }
 
 

@@ -24,6 +24,11 @@ class RoutesLoader
         $this->app['users.controller'] = $this->app->share(function () {
             return new Controllers\UsersController($this->app['users.service']);
         });
+
+        $this->app['setting.controller'] = $this->app->share(function () {
+            return new Controllers\SettingController($this->app['setting.service']);
+        });
+
     }
 
     public function bindRoutesToControllers()
@@ -31,10 +36,12 @@ class RoutesLoader
         $api = $this->app["controllers_factory"];
 
 //notes
+
         $api->get('/notes', "notes.controller:getAll");
         $api->post('/notes', "notes.controller:create");
         $api->put('/notes/{id_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
+
 //fin notes
 
 //users
@@ -48,7 +55,17 @@ class RoutesLoader
 
 //Fin users
 
-//
+//Setting
+
+        $api->get('/setting/{id_user}', "setting.controller:getAll");
+        $api->post('/setting', "setting.controller:create");
+        $api->put('/setting/look_sex/{id_user}', "setting.controller:setLook_sex");
+        $api->put('/setting/distance_max/{id_user}', "setting.controller:setDistance_max");
+        $api->put('/setting/look_age_max/{id_user}', "setting.controller:setLook_age_max");
+        $api->put('/setting/look_age_min/{id_user}', "setting.controller:setLook_age_min");
+        $api->put('/setting/hide_profil/{id_user}', "setting.controller:setHide_profil");
+
+//fin Setting
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
     }

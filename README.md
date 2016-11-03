@@ -165,8 +165,8 @@ FIN USER---------------
 MODULE SETTING --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting
-		Affiche toutes les parametre
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
+		Affiche toutes les parametre en fonction d'un user
 
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/setting
