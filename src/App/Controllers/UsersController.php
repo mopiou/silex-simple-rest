@@ -35,14 +35,14 @@ class UsersController
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
         $email = $request->request->get("email");
-        $id_genre = $request->request->get("id_genre");
+        $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
         $ville = $request->request->get("ville");
         $date_inscription = $request->request->get("date_inscription");
         $super_like = $request->request->get("super_like");
        
-        return new JsonResponse(array("id" => $this->usersService->create($prenom,$nom,$email,$id_genre,$age,$description,$password,$ville,$date_inscription,$super_like)));
+        return new JsonResponse(array("id" => $this->usersService->create($prenom,$nom,$email,$id_sex,$age,$description,$password,$ville,$date_inscription,$super_like)));
 
     }
     
@@ -56,8 +56,8 @@ class UsersController
     
     public function setSex($id_user,Request $request){
 
-        $id_genre = $request->request->get("id_genre");
-        return $this->usersService->setSex($id_user,$id_genre);
+        $id_sex = $request->request->get("id_sex");
+        return $this->usersService->setSex($id_user,$id_sex);
 
     }
 
@@ -68,7 +68,7 @@ class UsersController
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
         $email = $request->request->get("email");
-        $id_genre = $request->request->get("id_genre");
+        $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");    
         $ville = $request->request->get("ville");
@@ -82,7 +82,7 @@ class UsersController
         // }
 
    
-        return $this->usersService->update( $id_user,$prenom,$nom,$email,$id_genre,$age,$description,$ville);
+        return $this->usersService->update( $id_user,$prenom,$nom,$email,$id_sex,$age,$description,$ville);
     
     }
 
