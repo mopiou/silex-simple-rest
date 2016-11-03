@@ -26,23 +26,21 @@ class UsersController
         return new JsonResponse($this->usersService->getUser($id_user));
     } 
 
-    public function create(Request $request)
-    {
+    public function create(Request $request){
         // if (!$request->request->has('note')) {
         // return $app->json('Missing parameter: note', 400);
         // }
-
+        $id_facebook = $request->request->get("id_facebook");
         $prenom = $request->request->get("prenom");
         $nom = $request->request->get("nom");
         $email = $request->request->get("email");
         $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
-        $ville = $request->request->get("ville");
         $date_inscription = $request->request->get("date_inscription");
         $super_like = $request->request->get("super_like");
        
-        return new JsonResponse(array("id" => $this->usersService->create($prenom,$nom,$email,$id_sex,$age,$description,$password,$ville,$date_inscription,$super_like)));
+        return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_inscription,$super_like)));
 
     }
     
