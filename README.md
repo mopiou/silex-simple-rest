@@ -108,6 +108,9 @@ MODULE USER --------
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user
 		Affiche toutes les users
 
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
+	Affiche toutes les users en function de son id_user :
+
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/user
 		Ajout d'un user :
