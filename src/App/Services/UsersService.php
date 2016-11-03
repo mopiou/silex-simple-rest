@@ -32,7 +32,7 @@ class UsersService extends BaseService
         'email' => $email,
         'age' => $age,
         'description' => $description,
-        'date_inscription' => $date_inscription,
+        'date_registration' => $date_inscription,
         'super_like' => $super_like
         );
 
