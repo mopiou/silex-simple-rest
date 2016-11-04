@@ -23,7 +23,8 @@ class UsersService extends BaseService
 
     function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description){
 
-        $date_registration='2016-11-03';
+        $date_registration=new date_create_from_format;
+        echo $date_registration;
 
     // $dtz = new DateTimeZone("Europe/Madrid"); //Your timezone
     // $now = new DateTime(date("Y-m-d"), $dtz);
