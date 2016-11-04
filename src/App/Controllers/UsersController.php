@@ -16,6 +16,7 @@ class UsersController
         $this->usersService = $service;
     }
 
+
     public function getAll()
     {
         return new JsonResponse($this->usersService->getAll());
@@ -35,7 +36,6 @@ class UsersController
         $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
-        
         return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
 
     }
