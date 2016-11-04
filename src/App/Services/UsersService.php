@@ -40,9 +40,10 @@ class UsersService extends BaseService
 
         $this->db->insert('user', $data);
         return $this->db->lastInsertId();
-        
       
     }
+
+    //création de la table setting
      function createSetting($id_user,$look_sex){
 
         $data = array(
@@ -53,10 +54,7 @@ class UsersService extends BaseService
         'look_age_max' => 55,
         'look_age_min' => 18
         );
-    
-
         $this->db->insert('setting', $data);
-        
         return $data;
       
     }

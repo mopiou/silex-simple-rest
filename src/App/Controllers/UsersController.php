@@ -37,8 +37,10 @@ class UsersController
         $age = $request->request->get("age");
         $description = $request->request->get("description");
 
+        //création de la table user
         $result = new JsonResponse(array("id" => $id_user=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
         
+        //création de la table setting par defaut quand on creer un user
         if($id_sex=="M"){
             $this->usersService->createSetting($id_user,"F");
         }else{
