@@ -23,7 +23,6 @@ class UsersService extends BaseService
 
     function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description){
 
-        $super_like=0;
         $date_registration='2016-11-03';
 
     // $dtz = new DateTimeZone("Europe/Madrid"); //Your timezone
@@ -42,7 +41,7 @@ class UsersService extends BaseService
         'email' => $email,
         'age' => $age,
         'description' => $description,
-        'date_registration' => $date_registration,
+        'date_registration' => '2016-11-03',
         'super_like' => 0
         );
 
