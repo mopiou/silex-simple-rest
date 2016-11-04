@@ -42,8 +42,12 @@ class UsersController
 
         
         
-         $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
-         return $this->usersService->lastInsertId();
+        $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
+        $this->usersService->persist($object);
+        $this->usersService->flush();
+        return $object->getId();
+          
+        //  $this->usersService->lastInsertId();
 
         // $this->usersService->create($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min);
 
