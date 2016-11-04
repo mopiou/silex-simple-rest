@@ -26,9 +26,9 @@ class UsersService extends BaseService
         $super_like=0;
         $date_registration='2016-11-03';
 
-    $dtz = new DateTimeZone("Europe/Madrid"); //Your timezone
-    $now = new DateTime(date("Y-m-d"), $dtz);
-    echo $now->format("Y-m-d");
+    // $dtz = new DateTimeZone("Europe/Madrid"); //Your timezone
+    // $now = new DateTime(date("Y-m-d"), $dtz);
+    // echo $now->format("Y-m-d");
  
 
 
