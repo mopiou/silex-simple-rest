@@ -44,9 +44,9 @@ class UsersController
         $id_user=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
 
         if($id_sex=="M"){
-            $this->usersService->create($id_user,"F");
+            $this->usersService->createSetting($id_user,"F");
         }else{
-            $this->usersService->create($id_user,"M");
+            $this->usersService->createSetting($id_user,"M");
         }
         
         return $id_user;
