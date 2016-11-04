@@ -65,7 +65,6 @@ class RoutesLoader
         $api->put('/setting/look_age_min/{id_user}', "setting.controller:setLook_age_min");
         $api->put('/setting/hide_profil/{id_user}', "setting.controller:setHide_profil");
 
-
 //fin Setting
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
