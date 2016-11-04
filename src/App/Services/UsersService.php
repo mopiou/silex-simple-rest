@@ -24,7 +24,7 @@ class UsersService extends BaseService
     function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description){
 
         
-        return date('l jS \of F Y h:i:s A');
+        return date('Y-m-d');
 
     // $dtz = new DateTimeZone("Europe/Madrid"); //Your timezone
     // $now = new DateTime(date("Y-m-d"), $dtz);
