@@ -38,10 +38,11 @@ class UsersController
         $description = $request->request->get("description");
 
         
-        return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
-
-        // $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
-
+        // return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
+        
+        
+        $id=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
+        return $id;
         // $this->usersService->persist($object);
         // $this->usersService->flush();
         // return $object->getId();
