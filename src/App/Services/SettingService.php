@@ -10,6 +10,23 @@ class SettingService extends BaseService
     
     }
 
+     function create($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min){
+
+        $data = array(
+        'id_user' => $id_user,
+        'look_sex' => $look_sex,
+        'hide_profil' => $hide_profil,
+        'distance_max' => $distance_max,
+        'look_age_max' => $look_age_max,
+        'look_age_min' => $look_age_min
+        );
+    
+
+        $this->db->insert('setting', $data);
+        return $data;
+      
+    }
+
     function setLook_sex($id_user,$look_sex) {
         $data = array(
         'look_sex' => $look_sex 

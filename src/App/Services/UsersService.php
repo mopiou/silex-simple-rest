@@ -21,7 +21,7 @@ class UsersService extends BaseService
 
     }
 
-    function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description,$password,$date_registration,$super_like){
+    function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description){
 
         $data = array(
         'id_user' => 'default',
@@ -32,14 +32,16 @@ class UsersService extends BaseService
         'email' => $email,
         'age' => $age,
         'description' => $description,
-        'date_registration' => $date_registration,
-        'super_like' => $super_like
+        'date_registration' => now(),
+        'super_like' => 0
         );
 
         $this->db->insert('user', $data);
         return $data;
       
     }
+
+    
 
     function update($id_user,$prenom,$nom,$email,$id_sex,$age,$description){
 
