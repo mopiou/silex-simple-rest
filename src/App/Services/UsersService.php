@@ -23,6 +23,9 @@ class UsersService extends BaseService
 
     function create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description){
 
+        $date_registration = new date();
+        return $date_registration;
+
         $data = array(
         'id_user' => 'default',
         'id_facebook' => $id_facebook,
