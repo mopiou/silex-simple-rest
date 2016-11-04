@@ -43,15 +43,15 @@ class UsersService extends BaseService
         
       
     }
-     function createSetting($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min){
+     function createSetting($id_user,$look_sex){
 
         $data = array(
         'id_user' => $id_user,
         'look_sex' => $look_sex,
-        'hide_profil' => $hide_profil,
-        'distance_max' => $distance_max,
-        'look_age_max' => $look_age_max,
-        'look_age_min' => $look_age_min
+        'hide_profil' => 0,
+        'distance_max' => 15,
+        'look_age_max' => 55,
+        'look_age_min' => 18
         );
     
 

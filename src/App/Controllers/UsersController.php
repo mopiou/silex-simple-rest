@@ -41,15 +41,15 @@ class UsersController
         // return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
         
         
-        $id=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
-        return $id;
-        // $this->usersService->persist($object);
-        // $this->usersService->flush();
-        // return $object->getId();
-          
-        //  $this->usersService->lastInsertId();
+        $id_user=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
 
-        // $this->usersService->create($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min);
+        if($id_sex=="M"){
+            $this->usersService->create($id_user,"F");
+        }else{
+            $this->usersService->create($id_user,"M");
+        }
+        
+        return $id_user;
 
     }
     
