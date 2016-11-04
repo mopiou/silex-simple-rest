@@ -36,9 +36,6 @@ class UsersController
         $age = $request->request->get("age");
         $description = $request->request->get("description");
         
-        // $date_registration = $request->request->get("date_registration");
-        // $super_like = $request->request->get("super_like");
-       
         return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
 
     }
