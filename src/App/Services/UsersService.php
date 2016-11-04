@@ -39,7 +39,8 @@ class UsersService extends BaseService
         );
 
         $this->db->insert('user', $data);
-        return $data;
+        return $this->db->lastInsertId();
+        
       
     }
      function createSetting($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min){
@@ -55,6 +56,7 @@ class UsersService extends BaseService
     
 
         $this->db->insert('setting', $data);
+        
         return $data;
       
     }
