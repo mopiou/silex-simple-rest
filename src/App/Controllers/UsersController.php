@@ -36,8 +36,8 @@ class UsersController
         $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
-        
-        $result = new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
+
+        $result = new JsonResponse(array("id" => $id_user=$this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
         
         if($id_sex=="M"){
             $this->usersService->createSetting($id_user,"F");
