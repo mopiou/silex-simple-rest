@@ -36,7 +36,16 @@ class UsersController
         $id_sex = $request->request->get("id_sex");
         $age = $request->request->get("age");
         $description = $request->request->get("description");
-        return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
+
+        
+        // return new JsonResponse(array("id" => $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description)));
+
+        
+        
+         $this->usersService->create($id_facebook,$prenom,$nom,$email,$id_sex,$age,$description);
+         return var_dump($this->usersService->lastInsertId());
+
+        $this->usersService->create($id_user,$look_sex,$hide_profil,$distance_max,$look_age_max,$look_age_min);
 
     }
     
