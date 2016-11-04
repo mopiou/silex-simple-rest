@@ -43,7 +43,7 @@ class UsersService extends BaseService
         'age' => $age,
         'description' => $description,
         'date_registration' => $date_registration,
-        'super_like' => $super_like
+        'super_like' => 0
         );
 
         $this->db->insert('user', $data);
