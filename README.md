@@ -90,7 +90,9 @@ MODULE NOTE --------
 
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/notes
-	Ajout d'une note : {id_note}{id_user}{note}(int,int,int)
+	Ajout d'une note : 
+	
+	{id_note}{id_user}{note}(int,int,int)
 
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/notes/29{id_note}
@@ -109,110 +111,109 @@ MODULE USER --------
 		Affiche toutes les users
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
-	Affiche toutes les users en function de son id_user :
+	Affiche l'user en function de son id_user :
 
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/user
 		Ajout d'un user :
 
-		ajout au tables : user, setting,localisation,(photo)
+		ajout au tables : user, setting -- fait
+		
+		,localisation,(photo) - pas fait
 
-	{"id_facebook": "bigint",
-    "prenom": "varchar",
-    "nom": "varchar",
-    "email": "mail",
-    "id_sex": "char(1)",
-    "age": "int(11)",
-    "description": "varchar",
-    "password": "varchar",
-    "date_registration": "date",
-    "super_like": "int"}
-	
-
+	param : {
+		"id_facebook": "bigint",
+		"prenom": "varchar",
+		"nom": "varchar",
+		"email": "mail",
+		"id_sex": "char(1)",
+		"age": "int(11)",
+		"description": "varchar",
+		"password": "varchar",
+		"date_registration": "date",
+		"super_like": "int"
+	}
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
 		Modifie un user en function de son id_user :
-	{
 
+	param : {
 	    "prenom": "varchar",
 	    "nom": "varchar",
 	    "email": "mail",
 	    "id_sex": "char(1)",
 	    "age": "int(11)",
 	    "description": "varchar",
-	
 	}
 
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
-		Supprime un user 
+		Supprime un user en function de son id_user
 
 		supprime au tables : user, setting,localisation,(photo)
 
 	
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/description/{id_user}
 		Modifie sa description en function de son id_user :
-	{
+	param : {
 	    "description": "varchar",	  
 	}
 	
-
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/setsex/{id_user}
 		Modifie son sex en function de son id_user :
-	{
+	param : {
 	    "id_sex": "char(1)",	  
 	}
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/super_like/{id_user}
 		Modifie son sex en function de son id_user :
-	{
+	param : {
 	    "super_like": "int",	  
 	}
+
 FIN USER---------------
 
-
 MODULE SETTING --------
-
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
 		Affiche toutes les parametre en fonction d'un user
 
-
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/setting
 		Ajout d'un parametre :
 
-	{"id_user": "bigint",
-	"look_sex": "char(1)",
-    "hide_profil": "boolean",
-    "distance_max": "int",
-    "look_age_max": "int",
-    "look_age_min": "int",
+	param : {
+		"id_user": "bigint",
+		"look_sex": "char(1)",
+		"hide_profil": "boolean",
+		"distance_max": "int",
+		"look_age_max": "int",
+		"look_age_min": "int",
     }
 		
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_sex/{id_user}
 		Modifie son sexe_rechercher en function de son id_user :
-	{
+	param : {
 		"look_sex": "char(1)",	  
 	}
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/distance_max/{id_user}
 		Modifie son sex en function de son id_user :
-	{
+	param : {
 	    "distance_max": "int",	  
 	}
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_max/{id_user}
 		Modifie son age_rechercher_max en function de son id_user :
-	{
+	param : {
 	    "look_age_max": "int",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_min/{id_user}
 		Modifie son age_rechercher_min en function de son id_user :
-	{
+	param : {
 	    "look_age_min": "int",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/hide_profil/{id_user}
 		Modifie si l'utilisateur veut masquer_profil en function de son id_user :
-	{
+	param : {
 	    "hide_profil": "boolean",	  
 	}
 
@@ -230,7 +231,8 @@ MODULE REPORT --------
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/report
 		Ajout d'un report :
 
-	{"id_report": "bigint",
+	param : {
+	"id_report": "bigint",
 	"id_user": "bigint",
     "date_report": "date",
     "raison": "varchar",
@@ -239,7 +241,7 @@ MODULE REPORT --------
 		
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/report/raison/{id_user}
 		Modifie la raison en function de son id_user :
-	{
+	param : {
 		"raison": "varchar",	  
 	}
 
@@ -251,14 +253,14 @@ FIN REPORT---------------
 MODULE LOCATION --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/location
-		Affiche toutes les location
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+		Affiche toutes les location en fonction d'un user
 
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/location
 		Ajout d'un location :
 
-	{
+	param : {
 	"id_location": "bigint",
     "id_user": "bigint",
     "lng_lat": "varchar",
@@ -268,11 +270,10 @@ MODULE LOCATION --------
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
 		Modifie sa lng_lat en function de son id_user :
-	{
 
+	param : {
 	   "lng_lat": "varchar",
 		"date_location": "date",
-	
 	}
 
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
@@ -300,7 +301,7 @@ MODULE MATCH --------
 
 	Si l'id_user est la table PENDING_VALIDATION_MATCH alors ajout dans la table MATCH :
 
-		{
+		param : {
 		"id_match": "bigint",
 		"id_user": "bigint",
 		"date_match": "date",
@@ -319,7 +320,7 @@ MODULE MATCH --------
 			POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
 				Ajout d'une attente de validation du match :
 
-				{
+				param : {
 				"id_validation": "bigint",
 				"id_user": "bigint",
 				"id_user_target": "bigint",
@@ -347,7 +348,7 @@ FIN MATCH---------------
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
 		Ajout d'une attente de validation du match :
 
-		{
+		param : {
 		"id_validation": "bigint",
 		"id_user": "bigint",
 		"id_user_target": "bigint",
@@ -356,7 +357,7 @@ FIN MATCH---------------
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match/verification
 		renvoie 1 son id_user est dans remplie dans la table en id_user_target avec comme id_user_target l'id_user :
 
-		{
+		param : {
 		"id_user": "bigint",
 		"id_user_target": "bigint",
 		}
@@ -376,32 +377,34 @@ MODULE PHOTOS --------
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
 		Modifie ou ajoute sa photo1 en function de son id_user :
-	{
+
+	param : {
 	    "photo_1": "varchar",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/2/{id_user}
 		Modifie sa photo2 en function de son id_user :
-	{
+
+	param : {
 	    "photo_1": "varchar",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/3/{id_user}
 		Modifie sa photo3 en function de son id_user :
-	{
+	param : {
 	    "photo_1": "varchar",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/4/{id_user}
 		Modifie sa photo4 en function de son id_user :
-	{
+	param : {
 	    "photo_1": "varchar",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/5/{id_user}
 		Modifie sa photo5 en function de son id_user :
-	{
+	param : {
 	    "photo_1": "varchar",	  
 	}
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/6/{id_user}
 		Modifie sa photo6 en function de son id_user :
-	{
+	param : {
 	    "photo_1": "varchar",	  
 	}
 
