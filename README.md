@@ -255,6 +255,7 @@ MODULE REPORT --------
 		
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/report/raison/{id_user}
 		Modifie la raison en function de son id_user :
+
 	param : {
 		"raison": "varchar",	  
 	}
@@ -301,7 +302,6 @@ MODULE MATCH --------
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match{id_user}
 		Affiche toutes les MATCH d'un user
-
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match/like
 
@@ -422,7 +422,6 @@ MODULE PHOTOS --------
 	    "photo_1": "varchar",	  
 	}
 
-	
 
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
 		Supprime la photo1 en function de son id_user :
@@ -445,3 +444,42 @@ MODULE PHOTOS --------
 
 FIN PHOTO---------------
 
+
+MODULE RECOMMANDATION --------
+
+
+GET  ->		http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
+		Affiche toutes les recommandations d'un user
+
+	AVANT UN AJOUT d'une recommandation:
+
+		- Recuperer les parametre de recherche du profil (sexe_rechercher,look_age_max,look_age_min)
+		- Recuperer une liste d'utilisateur par rapport au parametre de selection
+		- Trier si les utilisateur ne sont pas deja like ou si il sont pas deja matché
+		- Récuperer des utilisateur (USER(nom,prenom,age,description,id_sex),PHOTO(photo_1))
+
+	POST ->   http://test.app-and-go.fr/toto/web/api/v1/recommandation
+		AJOUT d'une recommandation:
+
+		param : {
+		"id_user": "bigint",
+		"position": "int",
+		"id_cible": "bigint",
+		"datefinish": "datetime",
+		}
+	
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
+			renvoie une liste de taille donner de recommendation en function de son id_user :
+		param : {
+			"taille": "int",	  
+		}
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
+		Supprime un match function de son id_user :
+		
+		param : {
+		"position": "int",
+		
+		}
+
+FIN RECOMMENDATION---------------

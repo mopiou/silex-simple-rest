@@ -98,7 +98,6 @@ class UsersService extends BaseService
     }
     
     function delete($id_user){
-        $this->db->delete("notes", array("id_user" => $id_user));
         return $this->db->delete("user", array("id_user" => $id_user));
     }
 

@@ -69,6 +69,15 @@ class RoutesLoader
 
 //fin Setting
 
+//Recommandation
+
+        $api->get('/recommandation/{id_user},{size}', "recommandation.controller:getRecommandations");
+        $api->post('/recommandation', "recommandation.controller:createRecommandation");
+        $api->delete('/recommandation/{id_recommandation}', "recommandation.controller:deleteRecommandation");
+    
+//fin Recommandation
+
+
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
     }
 }
