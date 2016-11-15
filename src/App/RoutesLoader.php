@@ -59,6 +59,8 @@ class RoutesLoader
 //Setting
 
         $api->get('/setting/{id_user}', "setting.controller:getSetting");
+        $api->put('/setting/{id_user}', "setting.controller:setSetting");
+
         $api->put('/setting/look_sex/{id_user}', "setting.controller:setLook_sex");
         $api->put('/setting/distance_max/{id_user}', "setting.controller:setDistance_max");
         $api->put('/setting/look_age_max/{id_user}', "setting.controller:setLook_age_max");
