@@ -26,6 +26,21 @@ class SettingService extends BaseService
       
     // }
 
+
+    public function setSetting($id_user, $look_sex,$distance_max,$look_age_max,$look_age_min,$hide_profil){
+
+        $data = array(
+        'look_sex' => $look_sex ,
+        'distance_max' => $distance_max ,
+        'look_age_max' => $look_age_max ,
+        'look_age_min' => $look_age_min ,
+        'hide_profil' => $hide_profil 
+        );
+        
+        return $this->db->update('setting', $data, array('id_user' => $id_user));
+    }
+
+
     function setLook_sex($id_user,$look_sex) {
         $data = array(
         'look_sex' => $look_sex 

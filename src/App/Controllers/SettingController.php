@@ -18,6 +18,20 @@ class SettingController{
         return new JsonResponse($this->settingService->getSetting($id_user));
 
     }
+
+    public function setSetting($id_user,Request $request) {
+        
+        $look_sex = $request->request->get("look_sex");    
+        $distance_max = $request->request->get("distance_max");    
+        $look_age_max = $request->request->get("look_age_max");    
+        $look_age_min = $request->request->get("look_age_min");    
+        $hide_profil = $request->request->get("hide_profil");    
+
+
+        return $this->settingService->setSetting($id_user,$look_sex,$distance_max,$look_age_max,$look_age_min,$hide_profil);
+
+    }
+
     public function setLook_sex($id_user,Request $request){
 
         $look_sex = $request->request->get("look_sex");    

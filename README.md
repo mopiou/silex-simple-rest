@@ -177,6 +177,7 @@ MODULE SETTING --------
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
 		Affiche toutes les parametre en fonction d'un user
 
+/*
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/setting
 		Ajout d'un parametre :
 
@@ -188,7 +189,20 @@ MODULE SETTING --------
 		"look_age_max": "int",
 		"look_age_min": "int",
     }
-		
+*/
+
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
+		Ajout d'un parametre :
+
+	param : {
+		"id_user": "bigint",
+		"look_sex": "char(1)",
+		"hide_profil": "boolean",
+		"distance_max": "int",
+		"look_age_max": "int",
+		"look_age_min": "int",
+    }
+
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_sex/{id_user}
 		Modifie son sexe_rechercher en function de son id_user :
 	param : {
