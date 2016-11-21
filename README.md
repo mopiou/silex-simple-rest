@@ -102,10 +102,8 @@ MODULE NOTE --------
 	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/notes/{id_note}
 	Supprime une note 
 
-FIN NOTE---------------
-
+---------FIN NOTE---------------
 MODULE USER --------
-
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user
 		Affiche toutes les users
@@ -168,28 +166,13 @@ MODULE USER --------
 
 		supprime au tables : user, setting,localisation,(photo)
 
-FIN USER---------------
-
+--------------FIN USER---------------
 MODULE SETTING --------
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting
 		Affiche toutes les parametre en fonction d'un user
 
-/*
-	POST ->   http://test.app-and-go.fr/toto/web/api/v1/setting
-		Ajout d'un parametre :
-
-	param : {
-		"id_user": "bigint",
-		"look_sex": "char(1)",
-		"hide_profil": "boolean",
-		"distance_max": "int",
-		"look_age_max": "int",
-		"look_age_min": "int",
-    }
-*/
-
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting
 		Ajout d'un parametre :
 
 	param : {
@@ -201,38 +184,35 @@ MODULE SETTING --------
 		"look_age_min": "int",
     }
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_sex
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting/look_sex
 		Modifie son sexe_rechercher en function de son id_user :
 	param : {
 		"look_sex": "char(1)",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/distance_max
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting/distance_max
 		Modifie son sex en function de son id_user :
 	param : {
 	    "distance_max": "int",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_age_max
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting/look_age_max
 		Modifie son age_rechercher_max en function de son id_user :
 	param : {
 	    "look_age_max": "int",	  
 	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_age_min
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting/look_age_min
 		Modifie son age_rechercher_min en function de son id_user :
 	param : {
 	    "look_age_min": "int",	  
 	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/hide_profil
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setting/hide_profil
 		Modifie si l'utilisateur veut masquer_profil en function de son id_user :
 	param : {
 	    "hide_profil": "boolean",	  
 	}
 
-FIN SETTING---------------
-
-
-
+------------FIN SETTING---------------
 MODULE REPORT --------
 
 
@@ -251,24 +231,19 @@ MODULE REPORT --------
     "id_user_report": "bigint",
     }
 		
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/report/raison/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/report/raison/{id_report}
 		Modifie la raison en function de son id_user :
 
 	param : {
 		"raison": "varchar",	  
 	}
 
-
-FIN REPORT---------------
-
-
-
+--------FIN REPORT---------------
 MODULE LOCATION --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/location
 		Affiche toutes les location en fonction d'un user
-
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/location
 		Ajout d'un location :
@@ -281,7 +256,7 @@ MODULE LOCATION --------
   	}
 	
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/location
 		Modifie sa lng_lat en function de son id_user :
 
 	param : {
@@ -289,16 +264,14 @@ MODULE LOCATION --------
 		"date_location": "date",
 	}
 
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/location/{id_user}
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/location
 		Supprime une location function de son id_user :
 
-FIN LOCATION---------------
-
-
+---------FIN LOCATION---------------
 MODULE MATCH --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match/{id_user}
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/match
 		Affiche toutes les MATCH d'un user
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match/like
@@ -340,21 +313,19 @@ MODULE MATCH --------
 
 		FIN
 	
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/match/{id_user}
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/match
 		Supprime un match function de son id_user :
 		et
 		Place id_user dans Dislike 
 
-FIN MATCH---------------
-
-
-***************** MODULE PENDING_VALIDATION_MATCH --------  
+-------------------FIN MATCH---------------
+MODULE PENDING_VALIDATION_MATCH --------  
 
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
 		Affiche toutes les liste d'attente de validation de match
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match{id_user}
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/pending_validation_match
 	Affiche toutes les liste d'attente de validation de match d'un user
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match
@@ -374,87 +345,36 @@ FIN MATCH---------------
 		"id_user_target": "bigint",
 		}
 
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/pending_validation_match/{id_user}
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/pending_validation_match
 		Supprime les attentes de validation du match en function de son id_user :
 
-FIN PENDING_VALIDATION_MATCH --------
-
-
+----------------FIN PENDING_VALIDATION_MATCH --------
 MODULE PHOTOS --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/photos{id_user}
-		Affiche toutes les photos de l'user
-
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos
-		Renvoie toutes les photos de l'user
-
+		Affiche toutes les photos de l'user
 
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos/{id_photo}
 		Renvoie l'url de la photos id_photo
 
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos/{id_photo}
+		Modifie ou ajoute une photo en function de son id_user et son id_photo :
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
-		Modifie ou ajoute sa photo1 en function de son id_user :
-
-	param : {
-	    "photo_1": "varchar",	  
-	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/2/{id_user}
-		Modifie sa photo2 en function de son id_user :
-
-	param : {
-	    "photo_1": "varchar",	  
-	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/3/{id_user}
-		Modifie sa photo3 en function de son id_user :
-	param : {
-	    "photo_1": "varchar",	  
-	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/4/{id_user}
-		Modifie sa photo4 en function de son id_user :
-	param : {
-	    "photo_1": "varchar",	  
-	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/5/{id_user}
-		Modifie sa photo5 en function de son id_user :
-	param : {
-	    "photo_1": "varchar",	  
-	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/6/{id_user}
-		Modifie sa photo6 en function de son id_user :
-	param : {
-	    "photo_1": "varchar",	  
-	}
-
-
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
-		Supprime la photo1 en function de son id_user :
-		
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/2/{id_user}
-		Supprime la photo2 en function de son id_user :
+		param : {
+			"id_photo": "varchar",	  
+		}
 	
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/3/{id_user}
-		Supprime la photo3 en function de son id_user :
-	
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/4/{id_user}
-		Supprime la photo4 en function de son id_user :
-	
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/5/{id_user}
-		Supprime la photo5 en function de son id_user :
-	
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/photos/6/{id_user}
-		Supprime la photo6 en function de son id_user :
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos/{id_photo}
+		Supprime la photo en function de son id_user et son id_photo :
 	
 
-FIN PHOTO---------------
-
-
+--------------FIN PHOTO---------------
 MODULE RECOMMANDATION --------
 
 
-GET  ->		http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
-		Affiche toutes les recommandations d'un user
+GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/recommandation/{size}
+		renvoie une liste de taille size de toutes les recommandations d'un user
 
 	AVANT UN AJOUT d'une recommandation:
 
@@ -468,22 +388,15 @@ GET  ->		http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
 
 		param : {
 		"id_user": "bigint",
-		"position": "int",
 		"id_cible": "bigint",
 		"datefinish": "datetime",
 		}
 	
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
-			renvoie une liste de taille donner de recommendation en function de son id_user :
-		param : {
-			"taille": "int",	  
-		}
-
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_cible}
 		Supprime un match function de son id_user :
 		
 		param : {
-		"position": "int",
+		"id_user": "bigint",
 		
 		}
 

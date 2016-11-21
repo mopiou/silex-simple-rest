@@ -42,8 +42,7 @@ class RoutesLoader
         $api->put('/notes/{id_note}', "notes.controller:update");
         $api->delete('/notes/{id_note}', "notes.controller:delete");
 
-//fin notes
-
+//////fin notes
 //users
         $api->get('/user', "users.controller:getAll");
         $api->get('/user/{id_user}', "users.controller:getUser");
@@ -54,28 +53,26 @@ class RoutesLoader
         $api->put('/user/{id_user}/super_like', "users.controller:setSuper_like");
         $api->delete('/user/{id_user}', "users.controller:delete");
 
-//Fin users
-
+/////Fin users
 //Setting
 
         $api->get('/user/{id_user}/setting', "setting.controller:getSetting");
         $api->put('/user/{id_user}/setting', "setting.controller:setSetting");
 
-        $api->put('/user/{id_user}/setting/look_sex', "setting.controller:setLook_sex");
+        $api->put('/user/{id_user}/setting/look_sex'    , "setting.controller:setLook_sex");
         $api->put('/user/{id_user}/setting/distance_max', "setting.controller:setDistance_max");
         $api->put('/user/{id_user}/setting/look_age_max', "setting.controller:setLook_age_max");
         $api->put('/user/{id_user}/setting/look_age_min', "setting.controller:setLook_age_min");
-        $api->put('/user/{id_user}/setting/hide_profil', "setting.controller:setHide_profil");
+        $api->put('/user/{id_user}/setting/hide_profil' , "setting.controller:setHide_profil");
 
-//fin Setting
-
+////////fin Setting
 //Recommandation
 
-        $api->get('/recommandation/{id_user},{size}', "recommandation.controller:getRecommandations");
+        $api->get('/user/{id_user}/recommandation/{size}', "recommandation.controller:getRecommandations");
         $api->post('/recommandation', "recommandation.controller:createRecommandation");
-        $api->delete('/recommandation/{id_recommandation}', "recommandation.controller:deleteRecommandation");
+        $api->delete('/recommandation/{id_cilbe}', "recommandation.controller:deleteRecommandation");
     
-//fin Recommandation
+///////fin Recommandation
 
 
         $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
