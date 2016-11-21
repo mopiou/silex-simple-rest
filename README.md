@@ -201,29 +201,29 @@ MODULE SETTING --------
 		"look_age_min": "int",
     }
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_sex/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_sex
 		Modifie son sexe_rechercher en function de son id_user :
 	param : {
 		"look_sex": "char(1)",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/distance_max/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/distance_max
 		Modifie son sex en function de son id_user :
 	param : {
 	    "distance_max": "int",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_max/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_age_max
 		Modifie son age_rechercher_max en function de son id_user :
 	param : {
 	    "look_age_max": "int",	  
 	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/look_age_min/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/look_age_min
 		Modifie son age_rechercher_min en function de son id_user :
 	param : {
 	    "look_age_min": "int",	  
 	}
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/hide_profil/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/setting/{id_user}/hide_profil
 		Modifie si l'utilisateur veut masquer_profil en function de son id_user :
 	param : {
 	    "hide_profil": "boolean",	  

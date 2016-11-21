@@ -61,11 +61,11 @@ class RoutesLoader
         $api->get('/setting/{id_user}', "setting.controller:getSetting");
         $api->put('/setting/{id_user}', "setting.controller:setSetting");
 
-        $api->put('/setting/look_sex/{id_user}', "setting.controller:setLook_sex");
-        $api->put('/setting/distance_max/{id_user}', "setting.controller:setDistance_max");
-        $api->put('/setting/look_age_max/{id_user}', "setting.controller:setLook_age_max");
-        $api->put('/setting/look_age_min/{id_user}', "setting.controller:setLook_age_min");
-        $api->put('/setting/hide_profil/{id_user}', "setting.controller:setHide_profil");
+        $api->put('/setting/{id_user}/look_sex', "setting.controller:setLook_sex");
+        $api->put('/setting/{id_user}/distance_max', "setting.controller:setDistance_max");
+        $api->put('/setting/{id_user}/look_age_max', "setting.controller:setLook_age_max");
+        $api->put('/setting/{id_user}/look_age_min', "setting.controller:setLook_age_min");
+        $api->put('/setting/{id_user}/hide_profil', "setting.controller:setHide_profil");
 
 //fin Setting
 
