@@ -113,7 +113,6 @@ MODULE USER --------
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
 	Affiche l'user en function de son id_user :
 
-
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/user
 		Ajout d'un user :
 
@@ -145,30 +144,29 @@ MODULE USER --------
 	    "age": "int(11)",
 	    "description": "varchar",
 	}
-
-	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
-		Supprime un user en function de son id_user
-
-		supprime au tables : user, setting,localisation,(photo)
-
 	
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/description/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/description
 		Modifie sa description en function de son id_user :
 	param : {
 	    "description": "varchar",	  
 	}
 	
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/setsex/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/setsex
 		Modifie son sex en function de son id_user :
 	param : {
 	    "id_sex": "char(1)",	  
 	}
 
-	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/super_like/{id_user}
+	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/super_like
 		Modifie son sex en function de son id_user :
 	param : {
 	    "super_like": "int",	  
 	}
+
+	DELETE -> http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}
+		Supprime un user en function de son id_user
+
+		supprime au tables : user, setting,localisation,(photo)
 
 FIN USER---------------
 
@@ -300,7 +298,7 @@ FIN LOCATION---------------
 MODULE MATCH --------
 
 
-	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match{id_user}
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/match/{id_user}
 		Affiche toutes les MATCH d'un user
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/match/like
@@ -388,6 +386,13 @@ MODULE PHOTOS --------
 	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/photos{id_user}
 		Affiche toutes les photos de l'user
 
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos
+		Renvoie toutes les photos de l'user
+
+
+	GET  ->		http://test.app-and-go.fr/toto/web/api/v1/user/{id_user}/photos/{id_photo}
+		Renvoie l'url de la photos id_photo
+
 
 	PUT ->   http://test.app-and-go.fr/toto/web/api/v1/photos/1/{id_user}
 		Modifie ou ajoute sa photo1 en function de son id_user :
@@ -454,9 +459,9 @@ GET  ->		http://test.app-and-go.fr/toto/web/api/v1/recommandation/{id_user}
 	AVANT UN AJOUT d'une recommandation:
 
 		- Recuperer les parametre de recherche du profil (sexe_rechercher,look_age_max,look_age_min)
+		- Recuperer les utilisateurs deja like ou les les utilisateur dislike
 		- Recuperer une liste d'utilisateur par rapport au parametre de selection
-		- Trier si les utilisateur ne sont pas deja like ou si il sont pas deja matché
-		- Récuperer des utilisateur (USER(nom,prenom,age,description,id_sex),PHOTO(photo_1))
+		- Récuperer des utilisateurs (USER(nom,prenom,age,description,id_sex),PHOTO(photo_1, etc..))
 
 	POST ->   http://test.app-and-go.fr/toto/web/api/v1/recommandation
 		AJOUT d'une recommandation:

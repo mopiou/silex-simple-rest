@@ -49,9 +49,9 @@ class RoutesLoader
         $api->get('/user/{id_user}', "users.controller:getUser");
         $api->post('/user', "users.controller:create");
         $api->put('/user/{id_user}', "users.controller:update");
-        $api->put('/user/description/{id_user}', "users.controller:setDescription");
-        $api->put('/user/setsex/{id_user}', "users.controller:setSex");
-        $api->put('/user/super_like/{id_user}', "users.controller:setSuper_like");
+        $api->put('/user/{id_user}/description', "users.controller:setDescription");
+        $api->put('/user/{id_user}/setsex', "users.controller:setSex");
+        $api->put('/user/{id_user}/super_like', "users.controller:setSuper_like");
         $api->delete('/user/{id_user}', "users.controller:delete");
 
 //Fin users
